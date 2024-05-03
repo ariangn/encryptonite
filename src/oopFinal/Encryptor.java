@@ -1,6 +1,6 @@
 package oopFinal;
 
-public class Encryptor {
+public abstract class Encryptor {
 
-	public void Encrypt() {}
+	public abstract EncryptedMessage encrypt();
 }

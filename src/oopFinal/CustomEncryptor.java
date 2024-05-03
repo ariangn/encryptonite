@@ -38,7 +38,8 @@ public class CustomEncryptor extends Encryptor{
 		currentEncryptor = ce;
 	}
 	
-	public void encrypt(Message m) {
+	//inputs a message, outputs a CustomMessage
+	public EncryptedMessage encrypt(Message m) {
 		
 	}
 }
