@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.ScrollPane;
 import java.awt.Button;
+import java.awt.Dimension;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -93,6 +94,11 @@ public class CustomGUI extends JFrame {
 		contentPane.add(btnCancel);
 		
 		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clear();
+			}
+		});
 		btnClear.setBounds(160, 387, 117, 29);
 		contentPane.add(btnClear);
 		
@@ -123,21 +129,23 @@ public class CustomGUI extends JFrame {
 	void addFindReplaceRow(JPanel innerPanel1, JPanel innerPanel2) {
 		textNewFind = new JTextField();
 		System.out.println(findReplaceTexts.size());
-		textNewFind.setBounds(44, 10 , 100, 30 );
+		textNewFind.setBounds(44, 10, 100, 30 );
 		innerPanel1.add(textNewFind);
 		textNewFind.setColumns(10);
+		textNewFind.setMaximumSize(new Dimension(150,30));
 		
 		textNewReplace = new JTextField();
 		textNewReplace.setBounds(144, 10 , 100, 30 );
 		innerPanel2.add(textNewReplace);
 		textNewReplace.setColumns(10);
+		textNewReplace.setMaximumSize(new Dimension(150,30));
 		
 		newMinus = new JButton("-");
-		newMinus.setBounds(244, 387, 117, 29);
+		newMinus.setBounds(244, 387, 50, 29);
 		innerPanel3.add(newMinus);
 		newMinus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				subtractRow(findReplaceTexts.size()-1);
+				subtractRow(e.getSource());
 			}
 		});
 		
@@ -171,7 +179,10 @@ public class CustomGUI extends JFrame {
 //		contentPane.repaint();
 	}
 	
-	void subtractRow(int n) {
+	void subtractRow(Object btn) {
+		int n;
+		n = minusButtons.indexOf(btn);
+				
 		innerPanel1.remove(findReplaceTexts.get(n).get(0));
 		innerPanel2.remove(findReplaceTexts.get(n).get(1));
 		innerPanel3.remove(minusButtons.get(n));
@@ -192,6 +203,18 @@ public class CustomGUI extends JFrame {
 	}
 	
 	void clear() {
+		int m = findReplaceTexts.size();
 		
+		findReplaceTexts.clear();
+		minusButtons.clear();
+		
+		innerPanel1.removeAll();
+		innerPanel2.removeAll();
+		innerPanel3.removeAll();
+		
+		innerPanel1.revalidate();
+		innerPanel2.revalidate();
+		innerPanel3.revalidate();
+		contentPane.repaint();
 	}
 }
