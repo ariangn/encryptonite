@@ -33,6 +33,8 @@ public class CustomGUI extends JFrame {
 	private JPanel innerPanel2;
 	private JPanel innerPanel3;
 	
+	private JFrame customGuiFrame;
+	
 	private ArrayList<ArrayList<JTextField>> findReplaceTexts = new ArrayList<ArrayList<JTextField>>();
 	private ArrayList<JButton> minusButtons = new ArrayList<JButton>();
 
@@ -56,12 +58,16 @@ public class CustomGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public CustomGUI() {
+		
+		customGuiFrame = new JFrame();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
 		
 		outerPanel = new JPanel();
 		outerPanel.setLayout(new BoxLayout(outerPanel, BoxLayout.X_AXIS));
@@ -216,5 +222,14 @@ public class CustomGUI extends JFrame {
 		innerPanel2.revalidate();
 		innerPanel3.revalidate();
 		contentPane.repaint();
+	}
+	
+	void save() {
+		
+		CustomEncryptor custom = new CustomEncryptor();
+		
+		for (int i = 0; i < findReplaceTexts.size(); i++) {
+			custom.addPair(findReplaceTexts.get(i).get(0).getText(), findReplaceTexts.get(i).get(1).getText());
+		}
 	}
 }
