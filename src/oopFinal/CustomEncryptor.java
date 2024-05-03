@@ -32,4 +32,9 @@ public class CustomEncryptor {
 	public static CustomEncryptor getCurrentEncryptor() {
 		return currentEncryptor;
 	}
+	
+	//this is how the CustomGUI will access the current custom Encryptor being used
+	public static void setCurrentEncryptor(CustomEncryptor ce) {
+		currentEncryptor = ce;
+	}
 }

@@ -224,6 +224,9 @@ public class CustomGUI extends JFrame {
 		contentPane.repaint();
 	}
 	
+	
+	//this will store all the find-replace pairs entered by the user in a CustomEncryptor object
+	//and make this object the current Custom Encryption method (global field currentEncryptor in CustomEncryptor)
 	void save() {
 		
 		CustomEncryptor custom = new CustomEncryptor();
@@ -231,5 +234,7 @@ public class CustomGUI extends JFrame {
 		for (int i = 0; i < findReplaceTexts.size(); i++) {
 			custom.addPair(findReplaceTexts.get(i).get(0).getText(), findReplaceTexts.get(i).get(1).getText());
 		}
+		
+		CustomEncryptor.setCurrentEncryptor(custom);
 	}
 }
