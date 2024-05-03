@@ -4,7 +4,7 @@ public class Message {
 	private String messageText;
 	
 	public Message() {
-		
+		messageText = new String();
 	}
 	
 	public Message(String s) {

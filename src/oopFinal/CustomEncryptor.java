@@ -2,7 +2,7 @@ package oopFinal;
 
 import java.util.ArrayList;
 
-public class CustomEncryptor {
+public class CustomEncryptor extends Encryptor{
 	
 	//currentEncryptor is the custom encryption method that will used when the user encrypts a new message
 	private static CustomEncryptor currentEncryptor;
@@ -36,5 +36,9 @@ public class CustomEncryptor {
 	//this is how the CustomGUI will access the current custom Encryptor being used
 	public static void setCurrentEncryptor(CustomEncryptor ce) {
 		currentEncryptor = ce;
+	}
+	
+	public void encrypt(Message m) {
+		
 	}
 }
