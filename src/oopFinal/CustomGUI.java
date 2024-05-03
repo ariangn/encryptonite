@@ -5,13 +5,18 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.ScrollPane;
 import java.awt.Button;
+
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class CustomGUI extends JFrame {
@@ -19,6 +24,10 @@ public class CustomGUI extends JFrame {
 	int listHeight = 0;
 
 	private JPanel contentPane;
+	private JTextField textNewFind;
+	private JPanel innerPanel;
+	
+	private ArrayList<JTextField> findReplaceTexts = new ArrayList<JTextField>();
 
 	/**
 	 * Launch the application.
@@ -47,18 +56,17 @@ public class CustomGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		innerPanel = new JPanel();
+		innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));
+		
 		JLabel lblTitle = new JLabel("Create Custom Encryption");
 		lblTitle.setBounds(133, 16, 170, 16);
 		contentPane.add(lblTitle);
 		
-		ScrollPane scrollPane = new ScrollPane();
-		scrollPane.setBounds(35, 91, 374, 217);
-		contentPane.add(scrollPane);
-		
 		JButton btnPlus = new JButton("+");
 		btnPlus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				addFindReplaceRow(innerPanel);
 			}
 		});
 		btnPlus.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
@@ -84,9 +92,43 @@ public class CustomGUI extends JFrame {
 		JLabel lblWith = new JLabel("With");
 		lblWith.setBounds(242, 69, 61, 16);
 		contentPane.add(lblWith);
+		
+		JScrollPane scrollPane = new JScrollPane(innerPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		
+		scrollPane.setBounds(44, 91, 374, 217);
+		contentPane.add(scrollPane);
+		
+//		textNewFind = new JTextField();
+//		textNewFind.setBounds(44, 105, 130, 29);
+//		innerPanel.add(textNewFind);
+//		textNewFind.setColumns(10);
+		
 	}
 	
-	void addFindReplaceRow() {
-		contentPane.add
+	void addFindReplaceRow(JPanel innerPanel) {
+		textNewFind = new JTextField();
+		System.out.println(findReplaceTexts.size());
+		textNewFind.setBounds(44, 10 , 100, 30 );
+		innerPanel.add(textNewFind);
+		textNewFind.setColumns(10);
+		innerPanel.repaint();
+		contentPane.repaint();
+		
+		findReplaceTexts.add(textNewFind);
+		//sortFindReplace(innerPanel);
+		innerPanel.revalidate();
+		innerPanel.repaint();
+		contentPane.revalidate();
+		contentPane.repaint();
+	}
+	
+	void sortFindReplace(JPanel innerPanel) {
+		for (int i = 0; i < findReplaceTexts.size(); i++) {
+			findReplaceTexts.get(i).setBounds(44, 10 + (100 * i), 130, 30 + (100*i));
+			findReplaceTexts.get(i).setText(Integer.toString(i));
+		}
+		
+//		innerPanel.repaint();
+//		contentPane.repaint();
 	}
 }
