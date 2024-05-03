@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -14,7 +16,7 @@ public class CreateMessageGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textMessageName;
-	private JTextField textMessage;
+	private JTextArea textMessage;
 	private JButton btnEncrypt;
 	private JButton btnBack;
 	private JButton btnCreate;
@@ -60,10 +62,14 @@ public class CreateMessageGUI extends JFrame {
 		lblWriteTextHere.setBounds(141, 88, 162, 16);
 		contentPane.add(lblWriteTextHere);
 		
-		textMessage = new JTextField();
+		textMessage = new JTextArea();
 		textMessage.setBounds(47, 116, 367, 177);
 		contentPane.add(textMessage);
 		textMessage.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane(textMessage);
+		scrollPane.setBounds(47, 116, 367, 177);
+		contentPane.add(scrollPane);
 		
 		JLabel lblCreateMessage = new JLabel("Create a Message");
 		lblCreateMessage.setBounds(165, 22, 123, 16);
