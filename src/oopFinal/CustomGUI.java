@@ -92,6 +92,14 @@ public class CustomGUI extends JFrame {
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(6, 387, 117, 29);
 		contentPane.add(btnCancel);
+		// go back to main gui
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				new MainGUI().setVisible(true);
+			}
+		});
 		
 		JButton btnClear = new JButton("Clear");
 		btnClear.addActionListener(new ActionListener() {
@@ -105,6 +113,16 @@ public class CustomGUI extends JFrame {
 		JButton btnSave = new JButton("Save");
 		btnSave.setBounds(314, 387, 117, 29);
 		contentPane.add(btnSave);
+		// save data
+		
+		// go back to main gui
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				new MainGUI().setVisible(true);
+			}
+		});
 		
 		JLabel lblReplace = new JLabel("Replace");
 		lblReplace.setBounds(79, 69, 61, 16);

@@ -48,6 +48,7 @@ public class MainGUI extends JFrame {
 		btnViewMessages.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				dispose(); //destroys current frame 
 				new ViewMessageGUI().setVisible(true);
 			}
 		});
@@ -60,6 +61,7 @@ public class MainGUI extends JFrame {
 		btnCreateMessage_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				dispose();
 				new CreateMessageGUI().setVisible(true);
 			}
 		});
@@ -70,6 +72,7 @@ public class MainGUI extends JFrame {
 		btnCreateCustomEncryption.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				dispose();
 				new CustomGUI().setVisible(true);
 			}
 		});

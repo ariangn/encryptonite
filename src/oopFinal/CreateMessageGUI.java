@@ -2,6 +2,8 @@ package oopFinal;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -78,10 +80,25 @@ public class CreateMessageGUI extends JFrame {
 		btnEncrypt = new JButton("Encrypt!");
 		btnEncrypt.setBounds(171, 310, 117, 29);
 		contentPane.add(btnEncrypt);
+		btnEncrypt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				new EncryptionGUI().setVisible(true);
+			}
+		});
 		
 		btnBack = new JButton("Back");
 		btnBack.setBounds(34, 366, 117, 29);
 		contentPane.add(btnBack);
+		// go back to main gui
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				new MainGUI().setVisible(true);
+			}
+		});
 		
 		btnCreate = new JButton("Reset");
 		btnCreate.setBounds(171, 366, 117, 29);
@@ -90,5 +107,15 @@ public class CreateMessageGUI extends JFrame {
 		btnCreater = new JButton("Create");
 		btnCreater.setBounds(300, 366, 117, 29);
 		contentPane.add(btnCreater);
+		// add code later to store the data 
+		
+		// go back to main gui
+		btnCreater.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				new MainGUI().setVisible(true);
+			}
+		});
 	}
 }

@@ -2,6 +2,8 @@ package oopFinal;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -56,6 +58,13 @@ public class ViewMessageGUI extends JFrame {
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(16, 375, 117, 29);
 		frame.getContentPane().add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				dispose();
+				new MainGUI().setVisible(true);
+			}
+		});
 		
 		JTextArea scrollableArea = new JTextArea();
 		scrollableArea.setBounds(16, 34, 401, 329);
