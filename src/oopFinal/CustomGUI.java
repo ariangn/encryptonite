@@ -88,7 +88,7 @@ public class CustomGUI extends JFrame {
 		JButton btnPlus = new JButton("+");
 		btnPlus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addFindReplaceRow(innerPanel1, innerPanel2);
+				addFindReplaceRow();
 			}
 		});
 		btnPlus.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
@@ -143,23 +143,32 @@ public class CustomGUI extends JFrame {
 		scrollPane.setBounds(44, 91, 374, 217);
 		contentPane.add(scrollPane);
 		
-//		textNewFind = new JTextField();
-//		textNewFind.setBounds(44, 105, 130, 29);
-//		innerPanel.add(textNewFind);
-//		textNewFind.setColumns(10);
+		try {
+			loadCustomEncryptor();
+		} catch (Exception e) {
+			
+		}
 		
 	}
 	
-	void addFindReplaceRow(JPanel innerPanel1, JPanel innerPanel2) {
+	//add an empty find replace row
+	void addFindReplaceRow() {
+		addFindReplaceRow("","");
+	}
+	
+	//add find replace row with given text: for loading a previous custom encryptor
+	void addFindReplaceRow(String findText, String replaceText) {
 		textNewFind = new JTextField();
 		System.out.println(findReplaceTexts.size());
 		textNewFind.setBounds(44, 10, 100, 30 );
+		textNewFind.setText(findText);
 		innerPanel1.add(textNewFind);
 		textNewFind.setColumns(10);
 		textNewFind.setMaximumSize(new Dimension(150,30));
 		
 		textNewReplace = new JTextField();
 		textNewReplace.setBounds(144, 10 , 100, 30 );
+		textNewFind.setText(replaceText);
 		innerPanel2.add(textNewReplace);
 		textNewReplace.setColumns(10);
 		textNewReplace.setMaximumSize(new Dimension(150,30));
@@ -254,5 +263,13 @@ public class CustomGUI extends JFrame {
 		}
 		
 		CustomEncryptor.setCurrentEncryptor(custom);
+	}
+	
+	void loadCustomEncryptor() {
+		CustomEncryptor currentEncryptor = CustomEncryptor.getCurrentEncryptor();
+		
+		for (int i = 0; i < currentEncryptor.getAllPairs().size(); i++) {
+			addFindReplaceRow(currentEncryptor.getFindAt(i), currentEncryptor.getFindAt(i));
+		}
 	}
 }
