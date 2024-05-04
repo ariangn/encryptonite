@@ -17,6 +17,8 @@ import javax.swing.JScrollPane;
 
 import java.awt.Font;
 import java.awt.ScrollPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class EncryptionGUI extends JFrame {
 
@@ -24,6 +26,10 @@ public class EncryptionGUI extends JFrame {
 	
 	//messageShown is the current message that is being displayed in this menu
 	private Message messageShown;
+	
+	//an object of either HuffmanEncryptor, CustomEncryptor, or MorseEncryptor
+	//this will change when you click on the radial buttons
+	private Encryptor currentEncryptor;
 
 	/**
 	 * Launch the application.
@@ -87,10 +93,25 @@ public class EncryptionGUI extends JFrame {
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(6, 351, 117, 29);
 		contentPane.add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				encryptMessage();
+				contentPane.setVisible(false);
+				dispose();
+				new ViewMessageGUI().setVisible(true);
+			}
+		});
 		
 		JButton btnEncrypt = new JButton("Encrypt!");
 		btnEncrypt.setBounds(153, 314, 117, 29);
 		contentPane.add(btnEncrypt);
+		btnEncrypt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				new ViewMessageGUI().setVisible(true);
+			}
+		});
 		
 		JLabel lblPreview = new JLabel("Preview");
 		lblPreview.setBounds(189, 235, 61, 16);
@@ -111,5 +132,13 @@ public class EncryptionGUI extends JFrame {
 	
 	void showOriginalMessage(JTextArea textArea) {
 		textArea.setText(messageShown.getMessageText());
+	}
+	
+	//create a new encrypted message
+	void encryptMessage() {
+		EncryptedMessage encrypted;
+		
+		encrypted = currentEncryptor.encrypt(messageShown);
+		MessageManager.addEncryptedMessage(encrypted);
 	}
 }
