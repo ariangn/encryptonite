@@ -83,22 +83,28 @@ public class ViewMessageGUI extends JFrame {
 		ButtonGroup viewSelect = new ButtonGroup();
 		
 		JRadioButton rdbtnEncrypted = new JRadioButton("Encrypted");
-		rdbtnEncrypted.setBounds(39, 44, 141, 23);
+		rdbtnEncrypted.setBounds(240, 44, 141, 23);
 		contentPane.add(rdbtnEncrypted);
-		rdbtnEncrypted.setSelected(true);
 		viewSelect.add(rdbtnEncrypted);
 		rdbtnEncrypted.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				innerPanel.removeAll();
+				innerPanel.revalidate();
 				showEncryptedMessages();
 			}
 		});
 		
+		
+		
 		JRadioButton rdbtnUnencrypted = new JRadioButton("Unencrypted");
-		rdbtnUnencrypted.setBounds(240, 44, 141, 23);
+		rdbtnUnencrypted.setBounds(39, 44, 141, 23);
 		contentPane.add(rdbtnUnencrypted);
+		rdbtnUnencrypted.setSelected(true);
 		viewSelect.add(rdbtnUnencrypted);
 		rdbtnUnencrypted.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				innerPanel.removeAll();
+				innerPanel.revalidate();
 				showUnencryptedMessages();
 			}
 		});
@@ -123,16 +129,31 @@ public class ViewMessageGUI extends JFrame {
 			messageBtn.setBounds(100, 100, 117, 29);
 			messageBtn.setText(messages.get(i).getMessageText());
 			innerPanel.add(messageBtn);
+			
+			//action listener for if it is clicked, open up encryption GUI
+			messageBtn.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					contentPane.setVisible(false);
+					dispose();
+					
+					Message m = new Message(((JButton)(e.getSource())).getText());
+					
+					//open the encryptioGUI and pass in the selected message as an argument
+					
+					new EncryptionGUI(m).setVisible(true);
+				}
+			});
 		}
 		innerPanel.revalidate();
+		innerPanel.repaint();
 		contentPane.revalidate();
+		contentPane.repaint();
 	}
 	
 	void showEncryptedMessages() {
 		
 		//clear everything from the content pane
 		innerPanel.removeAll();
-		innerPanel.revalidate();
 		
 		ArrayList<EncryptedMessage> messages = MessageManager.getAllEncryptedMessages();
 
@@ -146,7 +167,9 @@ public class ViewMessageGUI extends JFrame {
 			innerPanel.add(messageBtn);
 		}
 		innerPanel.revalidate();
+		innerPanel.repaint();
 		contentPane.revalidate();
+		contentPane.repaint();
 	}
 	
 }

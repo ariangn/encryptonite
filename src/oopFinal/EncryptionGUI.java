@@ -21,15 +21,19 @@ import java.awt.ScrollPane;
 public class EncryptionGUI extends JFrame {
 
 	private JPanel contentPane;
+	
+	//messageShown is the current message that is being displayed in this menu
+	private Message messageShown;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EncryptionGUI frame = new EncryptionGUI();
+					EncryptionGUI frame = new EncryptionGUI(new Message());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +45,10 @@ public class EncryptionGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EncryptionGUI() {
+	public EncryptionGUI(Message m) {
+		
+		messageShown = m;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
@@ -58,6 +65,7 @@ public class EncryptionGUI extends JFrame {
 		
 		JRadioButton rdbtnOriginal = new JRadioButton("Original");
 		rdbtnOriginal.setBounds(29, 279, 86, 23);
+		rdbtnOriginal.setSelected(true);
 		contentPane.add(rdbtnOriginal);
 		encryptSelect.add(rdbtnOriginal);
 		
@@ -96,6 +104,12 @@ public class EncryptionGUI extends JFrame {
 		scrollPane.setBounds(52, 53, 350, 175);
 		contentPane.add(scrollPane);
 		
+		showOriginalMessage(textArea);
 		
+		
+	}
+	
+	void showOriginalMessage(JTextArea textArea) {
+		textArea.setText(messageShown.getMessageText());
 	}
 }
