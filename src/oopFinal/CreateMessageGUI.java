@@ -118,13 +118,4 @@ public class CreateMessageGUI extends JFrame {
 			}
 		});
 	}
-<<<<<<< Updated upstream
-=======
-	
-	//this method will make a message and add it to the MessageManager
-	private void create() {
-		UnencryptedMessage m = new UnencryptedMessage(textMessageName.getText(),textMessage.getText());
-		MessageManager.addUnencryptedMessage(m);
-	}
->>>>>>> Stashed changes
 }

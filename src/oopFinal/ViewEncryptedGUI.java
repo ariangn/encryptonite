@@ -67,36 +67,6 @@ public class ViewEncryptedGUI extends JFrame {
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setBounds(252, 284, 117, 29);
 		contentPane.add(btnDelete);
-<<<<<<< Updated upstream
-=======
-		btnDelete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				delete();
-				contentPane.setVisible(false);
-				dispose();
-				new ViewMessageGUI().setVisible(true);
-			}
-		});
-	}
-	
-	void showMessageText(JTextArea textArea) {
-		textArea.setText(messageShown.getMessageText());
-	}
-	
-	void delete() {
-		
-	}
-	
-	void deencryptMessage() {
-		//decrypte the message
-		UnencryptedMessage m = currentEncryptor.decrypt(messageShown);
-		
-		//add the decrypted message to the list of unencrypted messages
-		MessageManager.addUnencryptedMessage(m);
-		
-		//int messageIndex = MessageManager.getAllEncryptedMessages().indexOf(messageShown);
-		MessageManager.removeEncryptedMessage(messageShownIndex);
->>>>>>> Stashed changes
 	}
 
 }
