@@ -6,6 +6,12 @@ public class MorseMessage extends EncryptedMessage {
 	private String messageText;
 	
 	private Encryptor encryptorUsed;
+	
+	public MorseMessage(String n, String s, Encryptor e) {
+		name = n;
+		messageText = s;
+		encryptorUsed = e;
+	}
 
 	@Override
 	public String getMessageText() {

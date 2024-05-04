@@ -20,6 +20,12 @@ public class CustomMessage extends EncryptedMessage {
 		messageText = s;
 	}
 	
+	public CustomMessage(String n, String s, Encryptor e) {
+		name = n;
+		messageText = s;
+		encryptorUsed = e;
+	}
+	
 	public String getMessage() {
 		return messageText;
 	}
