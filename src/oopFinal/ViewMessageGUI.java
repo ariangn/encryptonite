@@ -127,7 +127,7 @@ public class ViewMessageGUI extends JFrame {
 		for (int i = 0; i < messages.size(); i++) {
 			JButton messageBtn = new JButton();
 			messageBtn.setBounds(100, 100, 117, 29);
-			messageBtn.setText(messages.get(i).getMessageText());
+			messageBtn.setText(messages.get(i).getName());
 			innerPanel.add(messageBtn);
 			
 			//action listener for if it is clicked, open up encryption GUI
@@ -163,7 +163,7 @@ public class ViewMessageGUI extends JFrame {
 		for (int i = 0; i < messages.size(); i++) {
 			JButton messageBtn = new JButton();
 			messageBtn.setBounds(100, 100, 117, 29);
-			messageBtn.setText(messages.get(i).getMessageText());
+			messageBtn.setText(messages.get(i).getName());
 			innerPanel.add(messageBtn);
 		}
 		innerPanel.revalidate();

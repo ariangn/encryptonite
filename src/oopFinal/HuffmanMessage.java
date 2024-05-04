@@ -18,5 +18,9 @@ public class HuffmanMessage extends EncryptedMessage{
 		return messageText;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 
 }
