@@ -75,21 +75,6 @@ public class EncryptionGUI extends JFrame {
 		contentPane.add(rdbtnOriginal);
 		encryptSelect.add(rdbtnOriginal);
 		
-		JRadioButton rdbtnHuffman = new JRadioButton("Huffman");
-		rdbtnHuffman.setBounds(108, 279, 96, 23);
-		contentPane.add(rdbtnHuffman);
-		encryptSelect.add(rdbtnHuffman);
-		
-		JRadioButton rdbtnMorse = new JRadioButton("Morse Code");
-		rdbtnMorse.setBounds(198, 279, 116, 23);
-		contentPane.add(rdbtnMorse);
-		encryptSelect.add(rdbtnMorse);
-		
-		JRadioButton rdbtnCustom = new JRadioButton("Custom");
-		rdbtnCustom.setBounds(310, 279, 96, 23);
-		contentPane.add(rdbtnCustom);
-		encryptSelect.add(rdbtnCustom);
-		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(6, 351, 117, 29);
 		contentPane.add(btnBack);
@@ -113,6 +98,7 @@ public class EncryptionGUI extends JFrame {
 			}
 		});
 		
+		
 		JLabel lblPreview = new JLabel("Preview");
 		lblPreview.setBounds(189, 235, 61, 16);
 		contentPane.add(lblPreview);
@@ -125,6 +111,39 @@ public class EncryptionGUI extends JFrame {
 		scrollPane.setBounds(52, 53, 350, 175);
 		contentPane.add(scrollPane);
 		
+		JRadioButton rdbtnHuffman = new JRadioButton("Huffman");
+		rdbtnHuffman.setBounds(108, 279, 96, 23);
+		contentPane.add(rdbtnHuffman);
+		encryptSelect.add(rdbtnHuffman);
+		rdbtnHuffman.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currentEncryptor = new HuffmanEncryptor();
+				showEncryptedMessage(textArea);
+			}
+		});
+		
+		JRadioButton rdbtnMorse = new JRadioButton("Morse Code");
+		rdbtnMorse.setBounds(198, 279, 116, 23);
+		contentPane.add(rdbtnMorse);
+		encryptSelect.add(rdbtnMorse);
+		rdbtnHuffman.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currentEncryptor = new MorseEncryptor();
+				showEncryptedMessage(textArea);
+			}
+		});
+		
+		JRadioButton rdbtnCustom = new JRadioButton("Custom");
+		rdbtnCustom.setBounds(310, 279, 96, 23);
+		contentPane.add(rdbtnCustom);
+		encryptSelect.add(rdbtnCustom);
+		rdbtnHuffman.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currentEncryptor = new CustomEncryptor();
+				showEncryptedMessage(textArea);
+			}
+		});
+		
 		showOriginalMessage(textArea);
 		
 		
@@ -132,6 +151,14 @@ public class EncryptionGUI extends JFrame {
 	
 	void showOriginalMessage(JTextArea textArea) {
 		textArea.setText(messageShown.getMessageText());
+	}
+	
+	//when you click on the radial buttons Huffman, Morse, or Custom
+	void showEncryptedMessage(JTextArea textArea) {
+		EncryptedMessage encrypted;
+		
+		encrypted = currentEncryptor.encrypt(messageShown);
+		textArea.setText(encrypted.getMessageText());
 	}
 	
 	//create a new encrypted message
