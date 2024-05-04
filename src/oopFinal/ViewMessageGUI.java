@@ -6,17 +6,24 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.ScrollPane;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class ViewMessageGUI extends JFrame {
 
 	private JPanel contentPane;
+	private JPanel innerPanel;
+	
+	private ArrayList<JButton> messageButtons;
 
 	/**
 	 * Launch the application.
@@ -45,6 +52,12 @@ public class ViewMessageGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		messageButtons = new ArrayList<JButton>();
+		
+		innerPanel = new JPanel();
+		innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));
+		contentPane.add(innerPanel);
+		
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -61,7 +74,7 @@ public class ViewMessageGUI extends JFrame {
 		lblTitle.setBounds(161, 6, 147, 16);
 		contentPane.add(lblTitle);
 		
-		ScrollPane scrollPane = new ScrollPane();
+		JScrollPane scrollPane = new JScrollPane(innerPanel);
 		scrollPane.setBounds(29, 73, 372, 256);
 		contentPane.add(scrollPane);
 		
@@ -72,5 +85,26 @@ public class ViewMessageGUI extends JFrame {
 		JRadioButton rdbtnUnencrypted = new JRadioButton("Unencrypted");
 		rdbtnUnencrypted.setBounds(240, 44, 141, 23);
 		contentPane.add(rdbtnUnencrypted);
+		
+		showMessages();
+	}
+	
+	//displays all messages within the scrollable area
+	void showMessages() {
+		
+		//System.out.println("showing messages");
+		
+		ArrayList<Message> messages = MessageManager.getAllUnencryptedMessages();
+		System.out.println("number of messages: " + messages.size());
+		
+		for (int i = 0; i < messages.size(); i++) {
+			System.out.println(messages.get(i).getMessageText());
+			JButton messageBtn = new JButton();
+			messageBtn.setBounds(100, 100, 117, 29);
+			messageBtn.setText(messages.get(i).getMessageText());
+			innerPanel.add(messageBtn);
+		}
+		innerPanel.revalidate();
+		contentPane.revalidate();
 	}
 }

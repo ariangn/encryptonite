@@ -1,6 +1,7 @@
 package oopFinal;
 
 public class Message {
+	private String name;
 	private String messageText;
 	
 	public Message() {
@@ -11,7 +12,12 @@ public class Message {
 		messageText = s;
 	}
 	
-	public String getMessage() {
+	public Message(String n, String s) {
+		name = n;
+		messageText = s;
+	}
+	
+	public String getMessageText() {
 		return messageText;
 	}
 
