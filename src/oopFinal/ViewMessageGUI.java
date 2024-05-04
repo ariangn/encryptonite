@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.ScrollPane;
 import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ViewMessageGUI extends JFrame {
 
@@ -44,6 +46,13 @@ public class ViewMessageGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				new MainGUI().setVisible(true);
+			}
+		});
 		btnBack.setBounds(6, 354, 117, 29);
 		contentPane.add(btnBack);
 		
