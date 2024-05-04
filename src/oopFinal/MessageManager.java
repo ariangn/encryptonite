@@ -22,4 +22,12 @@ public class MessageManager {
 	public static void addEncryptedMessage(EncryptedMessage m) {
 		encryptedMessages.add(m);
 	}
+	
+	public static void removeUnencryptedMessage(int index) {
+		unencryptedMessages.remove(index);
+	}
+	
+	public static void removeEncryptedMessage(int index) {
+		encryptedMessages.remove(index);
+	}
 }

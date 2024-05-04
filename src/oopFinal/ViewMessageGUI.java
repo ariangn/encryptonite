@@ -118,6 +118,7 @@ public class ViewMessageGUI extends JFrame {
 		//clear everything from the content pane
 		innerPanel.removeAll();
 		innerPanel.revalidate();
+		messageButtons.clear();
 		
 		ArrayList<Message> messages = MessageManager.getAllUnencryptedMessages();
 
@@ -128,6 +129,8 @@ public class ViewMessageGUI extends JFrame {
 			JButton messageBtn = new JButton();
 			messageBtn.setBounds(100, 100, 117, 29);
 			messageBtn.setText(messages.get(i).getName());
+			//add to ArrayList
+			messageButtons.add(messageBtn);
 			innerPanel.add(messageBtn);
 			
 			//action listener for if it is clicked, open up encryption GUI
@@ -136,7 +139,8 @@ public class ViewMessageGUI extends JFrame {
 					contentPane.setVisible(false);
 					dispose();
 					
-					Message m = new Message(((JButton)(e.getSource())).getText());
+					int index = messageButtons.indexOf((JButton)(e.getSource()));
+					Message m = messages.get(index);
 					
 					//open the encryptioGUI and pass in the selected message as an argument
 					
@@ -154,6 +158,7 @@ public class ViewMessageGUI extends JFrame {
 		
 		//clear everything from the content pane
 		innerPanel.removeAll();
+		messageButtons.clear();
 		
 		ArrayList<EncryptedMessage> messages = MessageManager.getAllEncryptedMessages();
 
@@ -164,7 +169,23 @@ public class ViewMessageGUI extends JFrame {
 			JButton messageBtn = new JButton();
 			messageBtn.setBounds(100, 100, 117, 29);
 			messageBtn.setText(messages.get(i).getName());
+			//add to ArrayList
+			messageButtons.add(messageBtn);
+			//add to panel
 			innerPanel.add(messageBtn);
+			messageBtn.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					contentPane.setVisible(false);
+					dispose();
+					
+					int index = messageButtons.indexOf((JButton)(e.getSource()));
+					EncryptedMessage m = messages.get(index);
+					
+					//open the encryptioGUI and pass in the selected message as an argument
+					
+					new ViewEncryptedGUI(m).setVisible(true);
+				}
+			});
 		}
 		innerPanel.revalidate();
 		innerPanel.repaint();

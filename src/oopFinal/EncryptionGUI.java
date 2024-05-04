@@ -156,12 +156,6 @@ public class EncryptionGUI extends JFrame {
 	
 	void showOriginalMessage(JTextArea textArea) {
 		textArea.setText(messageShown.getMessageText());
-		
-		//ALL A TEST, REMOVE LATER
-		
-//		HuffmanEncryptor h = new HuffmanEncryptor();
-//		Message m = new Message("hi");
-//		System.out.println("test:" + h.encrypt(m));
 	}
 	
 	//when you click on the radial buttons Huffman, Morse, or Custom
@@ -178,5 +172,9 @@ public class EncryptionGUI extends JFrame {
 		
 		encrypted = currentEncryptor.encrypt(messageShown);
 		MessageManager.addEncryptedMessage(encrypted);
+		
+		//find index of current message, then delete it from the unencrypted messages
+		int messageIndex = MessageManager.getAllUnencryptedMessages().indexOf(messageShown);
+		MessageManager.removeUnencryptedMessage(messageIndex);
 	}
 }
