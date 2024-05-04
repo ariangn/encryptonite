@@ -10,5 +10,4 @@ public abstract class EncryptedMessage {
 	public abstract String getName();
 	
 	public abstract Encryptor getEncryptorUsed();
-
 }

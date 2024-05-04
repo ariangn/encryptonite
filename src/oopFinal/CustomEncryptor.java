@@ -39,8 +39,19 @@ public class CustomEncryptor extends Encryptor{
 	}
 	
 	//inputs a message, outputs a CustomMessage
+<<<<<<< Updated upstream
 	public EncryptedMessage encrypt(Message m) {
 		return new EncryptedMessage();
+=======
+	public EncryptedMessage encrypt(UnencryptedMessage m) {
+		return new CustomMessage();
+	}
+
+	@Override
+	public UnencryptedMessage decrypt(EncryptedMessage m) {
+		// TODO Auto-generated method stub
+		return null;
+>>>>>>> Stashed changes
 	}
 	
 }
