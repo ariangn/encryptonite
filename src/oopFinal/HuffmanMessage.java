@@ -16,6 +16,12 @@ public class HuffmanMessage extends EncryptedMessage{
 		messageText = s;
 	}
 	
+	public HuffmanMessage(String n, String s, Encryptor e) {
+		name = n;
+		messageText = s;
+		encryptorUsed = e;
+	}
+	
 	@Override
 	public String getMessageText() {
 		return messageText;
