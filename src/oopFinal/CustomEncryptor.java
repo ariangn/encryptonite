@@ -28,6 +28,10 @@ public class CustomEncryptor extends Encryptor{
 		findReplaceList.add(new FindReplacePair(f,r));
 	}
 	
+	ArrayList<FindReplacePair> getAllPairs() {
+		return findReplaceList;
+	}
+	
 	//this is how other classes will access the current custom Encryptor being used
 	public static CustomEncryptor getCurrentEncryptor() {
 		return currentEncryptor;
