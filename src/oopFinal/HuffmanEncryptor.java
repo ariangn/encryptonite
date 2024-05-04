@@ -54,7 +54,7 @@ public class HuffmanEncryptor extends Encryptor{
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
         
-        String output = applyHuffman(input, huffmanCode);
+        String output = applyEncryption(input, huffmanCode);
                 
         return new HuffmanMessage(inputMessage.getName(), output);
 	}
@@ -88,9 +88,13 @@ public class HuffmanEncryptor extends Encryptor{
 	    generateCodes(root.right, code + "1", huffmanCodes);
 	}
 	
-	public static String applyHuffman(String input, Map<Character, String> huffmanCodes) {
-		//
-		return null;
+	public static String applyEncryption(String input, Map<Character, String> huffmanCodes) {
+	    StringBuilder encryptedText = new StringBuilder();
+	    for (int i = 0; i < input.length(); i++) {
+	        char ch = input.charAt(i);
+	        encryptedText.append(huffmanCodes.get(ch));
+	    }
+	    return encryptedText.toString();
 	}
 
 	@Override
