@@ -21,6 +21,16 @@ import java.awt.ScrollPane;
 public class EncryptionGUI extends JFrame {
 
 	private JPanel contentPane;
+<<<<<<< Updated upstream
+=======
+	
+	//messageShown is the current message that is being displayed in this menu
+	private UnencryptedMessage messageShown;
+	
+	//an object of either HuffmanEncryptor, CustomEncryptor, or MorseEncryptor
+	//this will change when you click on the radial buttons
+	private Encryptor currentEncryptor;
+>>>>>>> Stashed changes
 
 	/**
 	 * Launch the application.
@@ -29,7 +39,11 @@ public class EncryptionGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+<<<<<<< Updated upstream
 					EncryptionGUI frame = new EncryptionGUI();
+=======
+					EncryptionGUI frame = new EncryptionGUI(new UnencryptedMessage());
+>>>>>>> Stashed changes
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +55,14 @@ public class EncryptionGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+<<<<<<< Updated upstream
 	public EncryptionGUI() {
+=======
+	public EncryptionGUI(UnencryptedMessage m) {
+		
+		messageShown = m;
+		
+>>>>>>> Stashed changes
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();

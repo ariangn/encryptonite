@@ -1,8 +1,5 @@
 package oopFinal;
 
-<<<<<<< Updated upstream
-public class HuffmanEncryptor {
-=======
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -25,7 +22,7 @@ public class HuffmanEncryptor extends Encryptor{
 	}
 	
 	@Override
-	public HuffmanMessage encrypt(Message inputMessage) {
+	public HuffmanMessage encrypt(UnencryptedMessage inputMessage) {
 		
 		String input = inputMessage.getMessageText();
         
@@ -105,10 +102,9 @@ public class HuffmanEncryptor extends Encryptor{
 	    return encryptedText.toString();
 	}
 	@Override
-	public Message decrypt(EncryptedMessage m) {
+	public UnencryptedMessage decrypt(EncryptedMessage m) {
 		// TODO Auto-generated method stub
 		return null;
 	}
->>>>>>> Stashed changes
 
 }
