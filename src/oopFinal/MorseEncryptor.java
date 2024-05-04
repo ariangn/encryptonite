@@ -1,10 +1,8 @@
 package oopFinal;
 
-public class MorseEncryptor {
+public class MorseEncryptor extends Encryptor {
 	// inputs string
 	String input = new String("the quick brown fox jumps over the lazy dog");
-<<<<<<< Updated upstream
-=======
 
 	@Override
 	public EncryptedMessage encrypt(UnencryptedMessage m) {
@@ -17,7 +15,6 @@ public class MorseEncryptor {
 		// TODO Auto-generated method stub
 		return null;
 	}
->>>>>>> Stashed changes
 	
 	// construct tree
 	

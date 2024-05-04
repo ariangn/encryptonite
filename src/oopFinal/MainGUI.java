@@ -36,12 +36,6 @@ public class MainGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public MainGUI() {
-		
-		MessageManager m = new MessageManager();
-		m.getAllEncryptedMessages();
-		m.getAllUnencryptedMessages();
-		
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		frame = new JFrame();

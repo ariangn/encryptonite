@@ -6,6 +6,8 @@ public class CustomEncryptor extends Encryptor{
 	
 	//currentEncryptor is the custom encryption method that will used when the user encrypts a new message
 	private static CustomEncryptor currentEncryptor;
+	
+	private int length; //number of find-replace pairs
 
 	private class FindReplacePair {
 		
@@ -28,6 +30,18 @@ public class CustomEncryptor extends Encryptor{
 		findReplaceList.add(new FindReplacePair(f,r));
 	}
 	
+	ArrayList<FindReplacePair> getAllPairs() {
+		return findReplaceList;
+	}
+	
+	String getFindAt(int index) {
+		return findReplaceList.get(index).find;
+	}
+	
+	String getReplaceAt(int index) {
+		return findReplaceList.get(index).replace;
+	}
+	
 	//this is how other classes will access the current custom Encryptor being used
 	public static CustomEncryptor getCurrentEncryptor() {
 		return currentEncryptor;
@@ -39,10 +53,6 @@ public class CustomEncryptor extends Encryptor{
 	}
 	
 	//inputs a message, outputs a CustomMessage
-<<<<<<< Updated upstream
-	public EncryptedMessage encrypt(Message m) {
-		return new EncryptedMessage();
-=======
 	public EncryptedMessage encrypt(UnencryptedMessage m) {
 		return new CustomMessage();
 	}
@@ -51,7 +61,6 @@ public class CustomEncryptor extends Encryptor{
 	public UnencryptedMessage decrypt(EncryptedMessage m) {
 		// TODO Auto-generated method stub
 		return null;
->>>>>>> Stashed changes
 	}
 	
 }
