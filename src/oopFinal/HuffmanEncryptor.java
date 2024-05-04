@@ -21,6 +21,7 @@ public class HuffmanEncryptor extends Encryptor{
 	    }
 	}
 	
+	@Override
 	public HuffmanMessage encrypt(Message inputMessage) {
 		
 		String input = inputMessage.getMessageText();
