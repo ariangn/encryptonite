@@ -33,7 +33,7 @@ public class CustomGUI extends JFrame {
 	private JPanel innerPanel2;
 	private JPanel innerPanel3;
 	
-	private JFrame customGuiFrame;
+	//private JFrame customGuiFrame;
 	
 	private ArrayList<ArrayList<JTextField>> findReplaceTexts = new ArrayList<ArrayList<JTextField>>();
 	private ArrayList<JButton> minusButtons = new ArrayList<JButton>();
@@ -59,7 +59,7 @@ public class CustomGUI extends JFrame {
 	 */
 	public CustomGUI() {
 		
-		customGuiFrame = new JFrame();
+		//customGuiFrame = new JFrame();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
