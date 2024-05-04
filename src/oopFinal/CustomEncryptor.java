@@ -40,7 +40,7 @@ public class CustomEncryptor extends Encryptor{
 	
 	//inputs a message, outputs a CustomMessage
 	public EncryptedMessage encrypt(Message m) {
-		return new EncryptedMessage();
+		return new CustomMessage();
 	}
 	
 }

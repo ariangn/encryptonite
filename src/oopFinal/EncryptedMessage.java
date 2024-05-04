@@ -1,5 +1,7 @@
 package oopFinal;
 
-public class EncryptedMessage {
+public abstract class EncryptedMessage {
+	
+	public abstract String getMessageText();
 
 }

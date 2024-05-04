@@ -1,6 +1,6 @@
 package oopFinal;
 
-public class CustomMessage {
+public class CustomMessage extends EncryptedMessage {
 	
 	private String messageText;
 	
@@ -14,6 +14,12 @@ public class CustomMessage {
 	
 	public String getMessage() {
 		return messageText;
+	}
+
+	@Override
+	public String getMessageText() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
