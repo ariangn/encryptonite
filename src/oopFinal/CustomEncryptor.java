@@ -39,8 +39,8 @@ public class CustomEncryptor extends Encryptor{
 	}
 	
 	//inputs a message, outputs a CustomMessage
-	public EncryptedMessage encrypt(Message m) {
-		return new EncryptedMessage();
+	public EncryptedMessage encrypt(UnencryptedMessage m) {
+		return new CustomMessage();
 	}
 	
 }

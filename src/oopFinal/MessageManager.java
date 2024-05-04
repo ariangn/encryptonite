@@ -1,9 +1,5 @@
 package oopFinal;
 
-<<<<<<< Updated upstream
-public class MessageManager {
-
-=======
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -106,6 +102,4 @@ public class MessageManager {
         }
     }
 	
-	
->>>>>>> Stashed changes
 }

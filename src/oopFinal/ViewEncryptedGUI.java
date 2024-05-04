@@ -13,60 +13,59 @@ import javax.swing.JButton;
 
 public class ViewEncryptedGUI extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textField;
+    private JPanel contentPane;
+    private JTextField textField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewEncryptedGUI frame = new ViewEncryptedGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    ViewEncryptedGUI frame = new ViewEncryptedGUI();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
-	/**
-	 * Create the frame.
-	 */
-	public ViewEncryptedGUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 450);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(44, 30, 54, 16);
-		contentPane.add(lblName);
-		
-		textField = new JTextField();
-		textField.setBounds(110, 25, 228, 26);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(78, 90, 285, 118);
-		contentPane.add(textArea);
-		
-		JButton btnDeencrypt = new JButton("De-Encrypt!");
-		btnDeencrypt.setBounds(164, 220, 117, 29);
-		contentPane.add(btnDeencrypt);
-		
-		JButton btnBack = new JButton("Back");
-		btnBack.setBounds(73, 284, 117, 29);
-		contentPane.add(btnBack);
-		
-		JButton btnDelete = new JButton("Delete");
-		btnDelete.setBounds(252, 284, 117, 29);
-		contentPane.add(btnDelete);
-	}
+    /**
+     * Create the frame.
+     */
+    public ViewEncryptedGUI() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 450);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
 
+        JLabel lblName = new JLabel("Name");
+        lblName.setBounds(44, 30, 54, 16);
+        contentPane.add(lblName);
+
+        textField = new JTextField();
+        textField.setBounds(110, 25, 228, 26);
+        contentPane.add(textField);
+        textField.setColumns(10);
+
+        JTextArea textArea = new JTextArea();
+        textArea.setBounds(78, 90, 285, 118);
+        contentPane.add(textArea);
+
+        JButton btnDeencrypt = new JButton("De-Encrypt!");
+        btnDeencrypt.setBounds(164, 220, 117, 29);
+        contentPane.add(btnDeencrypt);
+
+        JButton btnBack = new JButton("Back");
+        btnBack.setBounds(73, 284, 117, 29);
+        contentPane.add(btnBack);
+
+        JButton btnDelete = new JButton("Delete");
+        btnDelete.setBounds(252, 284, 117, 29);
+        contentPane.add(btnDelete);
+    }
 }
