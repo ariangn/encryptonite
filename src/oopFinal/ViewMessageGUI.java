@@ -180,10 +180,11 @@ public class ViewMessageGUI extends JFrame {
 					
 					int index = messageButtons.indexOf((JButton)(e.getSource()));
 					EncryptedMessage m = messages.get(index);
+					//System.out.println("message at: " + index);
 					
 					//open the encryptioGUI and pass in the selected message as an argument
 					
-					new ViewEncryptedGUI(m, m.getEncryptorUsed()).setVisible(true);
+					new ViewEncryptedGUI(m, m.getEncryptorUsed(), index).setVisible(true);
 				}
 			});
 		}

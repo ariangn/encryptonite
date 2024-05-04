@@ -20,6 +20,7 @@ public class ViewEncryptedGUI extends JFrame {
 	
 	//the current message being displayed in this menu
 	private EncryptedMessage messageShown;
+	private int messageShownIndex;
 	
 	//the encryption method that was used to encypt messageShown
 	private Encryptor currentEncryptor;
@@ -31,7 +32,7 @@ public class ViewEncryptedGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ViewEncryptedGUI frame = new ViewEncryptedGUI(new HuffmanMessage(""), new HuffmanEncryptor());
+					ViewEncryptedGUI frame = new ViewEncryptedGUI(new HuffmanMessage(""), new HuffmanEncryptor(), 0);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +44,7 @@ public class ViewEncryptedGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ViewEncryptedGUI(EncryptedMessage m, Encryptor en) {
+	public ViewEncryptedGUI(EncryptedMessage m, Encryptor en, int index) {
 		
 		currentEncryptor = en;
 		
@@ -118,8 +119,8 @@ public class ViewEncryptedGUI extends JFrame {
 		//add the decrypted message to the list of unencrypted messages
 		MessageManager.addUnencryptedMessage(m);
 		
-		int messageIndex = MessageManager.getAllEncryptedMessages().indexOf(messageShown);
-		MessageManager.removeEncryptedMessage(messageIndex);
+		//int messageIndex = MessageManager.getAllEncryptedMessages().indexOf(messageShown);
+		MessageManager.removeEncryptedMessage(messageShownIndex);
 	}
 
 }
