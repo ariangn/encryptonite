@@ -100,6 +100,8 @@ public class CreateMessageGUI extends JFrame {
 		// go back to main gui
 		btnCreator.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				create();
+				
 				contentPane.setVisible(false);
 				dispose();
 				new MainGUI().setVisible(true);

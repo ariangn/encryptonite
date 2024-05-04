@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -55,6 +56,7 @@ public class ViewMessageGUI extends JFrame {
 		messageButtons = new ArrayList<JButton>();
 		
 		innerPanel = new JPanel();
+		innerPanel.setBounds(29, 73, 372, 256);
 		innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));
 		contentPane.add(innerPanel);
 		
@@ -78,25 +80,43 @@ public class ViewMessageGUI extends JFrame {
 		scrollPane.setBounds(29, 73, 372, 256);
 		contentPane.add(scrollPane);
 		
+		ButtonGroup viewSelect = new ButtonGroup();
+		
 		JRadioButton rdbtnEncrypted = new JRadioButton("Encrypted");
 		rdbtnEncrypted.setBounds(39, 44, 141, 23);
 		contentPane.add(rdbtnEncrypted);
+		rdbtnEncrypted.setSelected(true);
+		viewSelect.add(rdbtnEncrypted);
+		rdbtnEncrypted.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				showEncryptedMessages();
+			}
+		});
 		
 		JRadioButton rdbtnUnencrypted = new JRadioButton("Unencrypted");
 		rdbtnUnencrypted.setBounds(240, 44, 141, 23);
 		contentPane.add(rdbtnUnencrypted);
+		viewSelect.add(rdbtnUnencrypted);
+		rdbtnUnencrypted.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				showUnencryptedMessages();
+			}
+		});
 		
-		showMessages();
+		showUnencryptedMessages();
 	}
 	
-	//displays all messages within the scrollable area
-	void showMessages() {
+	//displays all unencrpted messages within the scrollable area
+	void showUnencryptedMessages() {
 		
-		//System.out.println("showing messages");
+		//clear everything from the content pane
+		innerPanel.removeAll();
 		
 		ArrayList<Message> messages = MessageManager.getAllUnencryptedMessages();
+
 		System.out.println("number of messages: " + messages.size());
 		
+		//loop through unencrypted messages and add them all as buttons
 		for (int i = 0; i < messages.size(); i++) {
 			System.out.println(messages.get(i).getMessageText());
 			JButton messageBtn = new JButton();
@@ -107,4 +127,26 @@ public class ViewMessageGUI extends JFrame {
 		innerPanel.revalidate();
 		contentPane.revalidate();
 	}
+	
+	void showEncryptedMessages() {
+		
+		//clear everything from the content pane
+		innerPanel.removeAll();
+		
+		ArrayList<Message> messages = MessageManager.getAllUnencryptedMessages();
+
+		System.out.println("number of messages: " + messages.size());
+		
+		//loop through encrypted messages and add them all as buttons
+		for (int i = 0; i < messages.size(); i++) {
+			System.out.println(messages.get(i).getMessageText());
+			JButton messageBtn = new JButton();
+			messageBtn.setBounds(100, 100, 117, 29);
+			messageBtn.setText(messages.get(i).getMessageText());
+			innerPanel.add(messageBtn);
+		}
+		innerPanel.revalidate();
+		contentPane.revalidate();
+	}
+	
 }
