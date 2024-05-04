@@ -183,7 +183,7 @@ public class ViewMessageGUI extends JFrame {
 					
 					//open the encryptioGUI and pass in the selected message as an argument
 					
-					new ViewEncryptedGUI(m).setVisible(true);
+					new ViewEncryptedGUI(m, m.getEncryptorUsed()).setVisible(true);
 				}
 			});
 		}

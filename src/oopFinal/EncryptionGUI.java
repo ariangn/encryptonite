@@ -151,7 +151,6 @@ public class EncryptionGUI extends JFrame {
 		
 		showOriginalMessage(textArea);
 		
-		
 	}
 	
 	void showOriginalMessage(JTextArea textArea) {

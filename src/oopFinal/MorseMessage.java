@@ -4,6 +4,8 @@ public class MorseMessage extends EncryptedMessage {
 	
 	private String name;
 	private String messageText;
+	
+	private Encryptor encryptorUsed;
 
 	@Override
 	public String getMessageText() {
@@ -13,6 +15,11 @@ public class MorseMessage extends EncryptedMessage {
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public Encryptor getEncryptorUsed() {
+		return encryptorUsed;
 	}
 
 }

@@ -9,6 +9,12 @@ public class MorseEncryptor extends Encryptor {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Message decrypt(EncryptedMessage m) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	// construct tree
 	

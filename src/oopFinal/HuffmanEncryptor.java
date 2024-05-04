@@ -93,5 +93,11 @@ public class HuffmanEncryptor extends Encryptor{
 		return null;
 	}
 
+	@Override
+	public Message decrypt(EncryptedMessage m) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 

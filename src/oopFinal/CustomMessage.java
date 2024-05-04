@@ -5,6 +5,8 @@ public class CustomMessage extends EncryptedMessage {
 	private String name;
 	private String messageText;
 	
+	private Encryptor encryptorUsed;
+	
 	public CustomMessage() {
 		messageText = new String();
 	}
@@ -30,6 +32,11 @@ public class CustomMessage extends EncryptedMessage {
 	
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public Encryptor getEncryptorUsed() {
+		return encryptorUsed;
 	}
 
 }

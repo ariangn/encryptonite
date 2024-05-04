@@ -31,7 +31,7 @@ public class ViewEncryptedGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ViewEncryptedGUI frame = new ViewEncryptedGUI(new HuffmanMessage(""));
+					ViewEncryptedGUI frame = new ViewEncryptedGUI(new HuffmanMessage(""), new HuffmanEncryptor());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,10 @@ public class ViewEncryptedGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ViewEncryptedGUI(EncryptedMessage m) {
+	public ViewEncryptedGUI(EncryptedMessage m, Encryptor en) {
+		
+		currentEncryptor = en;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
@@ -109,7 +112,14 @@ public class ViewEncryptedGUI extends JFrame {
 	}
 	
 	void deencryptMessage() {
+		//decrypte the message
+		Message m = currentEncryptor.decrypt(messageShown);
 		
+		//add the decrypted message to the list of unencrypted messages
+		MessageManager.addUnencryptedMessage(m);
+		
+		int messageIndex = MessageManager.getAllEncryptedMessages().indexOf(messageShown);
+		MessageManager.removeEncryptedMessage(messageIndex);
 	}
 
 }

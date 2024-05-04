@@ -42,5 +42,11 @@ public class CustomEncryptor extends Encryptor{
 	public EncryptedMessage encrypt(Message m) {
 		return new CustomMessage();
 	}
+
+	@Override
+	public Message decrypt(EncryptedMessage m) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
