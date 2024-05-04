@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
-public class MessageManager {
+public class MessageManager { //hi
 	
 	private static ArrayList<UnencryptedMessage> unencryptedMessages = new ArrayList<UnencryptedMessage>();
 	private static ArrayList<EncryptedMessage> encryptedMessages = new ArrayList<EncryptedMessage>();
