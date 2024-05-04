@@ -20,5 +20,9 @@ public class Message {
 	public String getMessageText() {
 		return messageText;
 	}
+	
+	public String getName() {
+		return name;
+	}
 
 }

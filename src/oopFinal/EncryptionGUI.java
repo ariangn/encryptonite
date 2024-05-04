@@ -168,15 +168,6 @@ public class EncryptionGUI extends JFrame {
 	void showEncryptedMessage(JTextArea textArea) {
 		EncryptedMessage encrypted;
 		
-		//remove this after testing
-		if (currentEncryptor.getClass() == (new HuffmanEncryptor()).getClass()) {
-			System.out.println("using Huffman");
-		} else {
-			System.out.println("nah");
-		}
-		
-		//PROBLEM: currentEncryptor is not being set to a huffman
-		
 		encrypted = currentEncryptor.encrypt(messageShown);
 		textArea.setText(encrypted.getMessageText());
 	}
