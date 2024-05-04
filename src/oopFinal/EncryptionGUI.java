@@ -83,6 +83,8 @@ public class EncryptionGUI extends JFrame {
 		JButton btnEncrypt = new JButton("Encrypt!");
 		btnEncrypt.setBounds(153, 314, 117, 29);
 		contentPane.add(btnEncrypt);
+		//it starts greyed out and unclickable, because no encryption method is selected
+		btnEncrypt.setEnabled(false);
 		btnEncrypt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				encryptMessage();
@@ -112,6 +114,8 @@ public class EncryptionGUI extends JFrame {
 		encryptSelect.add(rdbtnOriginal);
 		rdbtnOriginal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//grey out the "encrypt" button and make it unclickable when original is selected
+				btnEncrypt.setEnabled(false);
 				showOriginalMessage(textArea);
 			}
 		});
@@ -122,6 +126,8 @@ public class EncryptionGUI extends JFrame {
 		encryptSelect.add(rdbtnHuffman);
 		rdbtnHuffman.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//reenable the "encrypt" button
+				btnEncrypt.setEnabled(true);
 				currentEncryptor = new HuffmanEncryptor();
 				showEncryptedMessage(textArea);
 			}
@@ -133,6 +139,8 @@ public class EncryptionGUI extends JFrame {
 		encryptSelect.add(rdbtnMorse);
 		rdbtnMorse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//reenable the "encrypt" button
+				btnEncrypt.setEnabled(true);
 				currentEncryptor = new MorseEncryptor();
 				showEncryptedMessage(textArea);
 			}
@@ -144,6 +152,8 @@ public class EncryptionGUI extends JFrame {
 		encryptSelect.add(rdbtnCustom);
 		rdbtnCustom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//reenable the "encrypt" button
+				btnEncrypt.setEnabled(true);
 				currentEncryptor = new CustomEncryptor();
 				showEncryptedMessage(textArea);
 			}
