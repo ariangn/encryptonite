@@ -19,9 +19,10 @@ public class CreateMessageGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField textMessageName;
 	private JTextArea textMessage;
+	private JButton btnEncrypt;
 	private JButton btnBack;
 	private JButton btnCreate;
-	private JButton btnCreator;
+	private JButton btnCreater;
 
 	/**
 	 * Launch the application.
@@ -76,6 +77,17 @@ public class CreateMessageGUI extends JFrame {
 		lblCreateMessage.setBounds(165, 22, 123, 16);
 		contentPane.add(lblCreateMessage);
 		
+		btnEncrypt = new JButton("Encrypt!");
+		btnEncrypt.setBounds(171, 310, 117, 29);
+		contentPane.add(btnEncrypt);
+		btnEncrypt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				new EncryptionGUI().setVisible(true);
+			}
+		});
+		
 		btnBack = new JButton("Back");
 		btnBack.setBounds(34, 366, 117, 29);
 		contentPane.add(btnBack);
@@ -92,26 +104,27 @@ public class CreateMessageGUI extends JFrame {
 		btnCreate.setBounds(171, 366, 117, 29);
 		contentPane.add(btnCreate);
 		
-		btnCreator = new JButton("Create");
-		btnCreator.setBounds(300, 366, 117, 29);
-		contentPane.add(btnCreator);
+		btnCreater = new JButton("Create");
+		btnCreater.setBounds(300, 366, 117, 29);
+		contentPane.add(btnCreater);
 		// add code later to store the data 
 		
 		// go back to main gui
-		btnCreator.addActionListener(new ActionListener() {
+		btnCreater.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				create();
-				
 				contentPane.setVisible(false);
 				dispose();
 				new MainGUI().setVisible(true);
 			}
 		});
 	}
+<<<<<<< Updated upstream
+=======
 	
 	//this method will make a message and add it to the MessageManager
 	private void create() {
-		Message m = new Message(textMessageName.getText(),textMessage.getText());
+		UnencryptedMessage m = new UnencryptedMessage(textMessageName.getText(),textMessage.getText());
 		MessageManager.addUnencryptedMessage(m);
 	}
+>>>>>>> Stashed changes
 }
