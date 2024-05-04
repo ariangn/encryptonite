@@ -1,7 +1,11 @@
 package oopFinal;
+<<<<<<< Updated upstream
 
+public class Message {
+=======
 public abstract class Message {
 	private String name;
+>>>>>>> Stashed changes
 	private String messageText;
 	
 	public Message() {
@@ -12,6 +16,12 @@ public abstract class Message {
 		messageText = s;
 	}
 	
+<<<<<<< Updated upstream
+	public String getMessage() {
+		return messageText;
+	}
+
+=======
 	public String getMessageText() {
 		return messageText;
 	}
@@ -19,5 +29,6 @@ public abstract class Message {
 	public String getName() {
 		return name;
 	}
-
+>>>>>>> Stashed changes
 }
+

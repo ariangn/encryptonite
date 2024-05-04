@@ -1,5 +1,8 @@
 package oopFinal;
 
+<<<<<<< Updated upstream
+public class HuffmanEncryptor {
+=======
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -106,5 +109,6 @@ public class HuffmanEncryptor extends Encryptor{
 		// TODO Auto-generated method stub
 		return null;
 	}
+>>>>>>> Stashed changes
 
 }

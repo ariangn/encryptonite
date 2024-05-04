@@ -1,30 +1,40 @@
 package oopFinal;
 
 public class HuffmanMessage extends EncryptedMessage{
+
+	String name;
+	String messageText;
 	
-	private String name;
-	private String messageText;
-
-	public HuffmanMessage(String name, String output, HuffmanEncryptor huffmanEncryptor) {
-		this.name = name;
+	private Encryptor encryptorUsed;
+	
+	public HuffmanMessage(String s) {
+		messageText = s;
 	}
-
+	
+	public HuffmanMessage(String n, String s) {
+		name = n;
+		messageText = s;
+	}
+	
+	public HuffmanMessage(String n, String s, Encryptor e) {
+		name = n;
+		messageText = s;
+		encryptorUsed = e;
+	}
+	
 	@Override
 	public String getMessageText() {
-		// TODO Auto-generated method stub
-		return null;
+		return messageText;
 	}
-
-	@Override
+	
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	@Override
 	public Encryptor getEncryptorUsed() {
-		// TODO Auto-generated method stub
-		return null;
+		return encryptorUsed;
 	}
+	
 
 }

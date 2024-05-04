@@ -1,8 +1,11 @@
 package oopFinal;
 
-public class CustomMessage extends EncryptedMessage{
+public class CustomMessage extends EncryptedMessage {
 	
+	private String name;
 	private String messageText;
+	
+	private Encryptor encryptorUsed;
 	
 	public CustomMessage() {
 		messageText = new String();
@@ -10,6 +13,17 @@ public class CustomMessage extends EncryptedMessage{
 	
 	public CustomMessage(String s) {
 		messageText = s;
+	}
+	
+	public CustomMessage(String n, String s) {
+		name = n;
+		messageText = s;
+	}
+	
+	public CustomMessage(String n, String s, Encryptor e) {
+		name = n;
+		messageText = s;
+		encryptorUsed = e;
 	}
 	
 	public String getMessage() {
@@ -21,17 +35,14 @@ public class CustomMessage extends EncryptedMessage{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
+	
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	@Override
 	public Encryptor getEncryptorUsed() {
-		// TODO Auto-generated method stub
-		return null;
+		return encryptorUsed;
 	}
 
 }
