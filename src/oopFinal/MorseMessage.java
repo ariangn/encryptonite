@@ -10,6 +10,7 @@ public class MorseMessage extends EncryptedMessage {
 	public MorseMessage(String n, String s) {
 		name = n;
 		messageText = s;
+		encryptorUsed = new MorseEncryptor();
 	}
 	
 	public MorseMessage(String n, String s, Encryptor e) {
