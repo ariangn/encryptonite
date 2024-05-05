@@ -70,6 +70,7 @@ public class ViewEncryptedGUI extends JFrame {
 		textName.setColumns(10);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
 		textArea.setBounds(78, 90, 285, 118);
 		contentPane.add(textArea);
 		
