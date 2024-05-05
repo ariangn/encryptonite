@@ -22,29 +22,29 @@ public class CustomEncryptor extends Encryptor{
 	
 	ArrayList<FindReplacePair> findReplaceList;
 	
-	CustomEncryptor() {
+	public CustomEncryptor() {
 		findReplaceList = new ArrayList<FindReplacePair>();
 	}
 	
-	void addPair(String f, String r) {
+	public void addPair(String f, String r) {
 		length++;
 		findReplaceList.add(new FindReplacePair(f,r));
 		
 	}
 	
-	ArrayList<FindReplacePair> getAllPairs() {
+	public ArrayList<FindReplacePair> getAllPairs() {
 		return findReplaceList;
 	}
 	
-	String getFindAt(int index) {
+	public String getFindAt(int index) {
 		return findReplaceList.get(index).find;
 	}
 	
-	String getReplaceAt(int index) {
+	public String getReplaceAt(int index) {
 		return findReplaceList.get(index).replace;
 	}
 	
-	int getLength() {
+	public int getLength() {
 		return length;
 	}
 	
