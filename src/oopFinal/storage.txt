@@ -1,0 +1,15 @@
+Encrypted Message
+Encryptor Used: Huffman
+Name: huff
+Message: text
+-------------
+Encrypted Message
+Encryptor Used: Morse
+Name: morse
+Message: text
+-------------
+Encrypted Message
+Encryptor Used: Custom
+Name: custom
+Message: null
+-------------

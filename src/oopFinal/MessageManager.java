@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
-public class MessageManager { //hi
+public class MessageManager {
 	
 	private static ArrayList<UnencryptedMessage> unencryptedMessages = new ArrayList<UnencryptedMessage>();
 	private static ArrayList<EncryptedMessage> encryptedMessages = new ArrayList<EncryptedMessage>();
@@ -37,85 +37,99 @@ public class MessageManager { //hi
 	//------------------------------------------------------------------------//
 	
 	public static void fetchMessages(File storageFile) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(storageFile))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.equals("Unencrypted Message")) {
-                    String name = reader.readLine().substring(6);
-                    String messageText = reader.readLine().substring(9);
-                    unencryptedMessages.add(new UnencryptedMessage(name, messageText));
-                    
-                } else if (line.equals("Encrypted Message")) {
-                    String name = reader.readLine().substring(6);
-                    String messageText = reader.readLine().substring(9);
-                    
-                    encryptedMessages.add(new HuffmanMessage(name, messageText)); //TODO
-                }
-                // Skip the "-------------" line
-                reader.readLine();
+	    try (BufferedReader reader = new BufferedReader(new FileReader(storageFile))) {
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            if (line.equals("Unencrypted Message")) {
+	                String name = reader.readLine().substring(6);
+	                String messageText = reader.readLine().substring(9);
+	                unencryptedMessages.add(new UnencryptedMessage(name, messageText));
+	            } else if (line.equals("Encrypted Message")) {
+	                String encryptorType = reader.readLine().substring(15); // Read the encryptor type
+	                String name = reader.readLine().substring(6);
+	                String messageText = reader.readLine().substring(9);
+	                
+	                switch (encryptorType) {
+	                    case "Huffman":
+	                        encryptedMessages.add(new HuffmanMessage(name, messageText));
+	                        break;
+	                    case "Morse":
+	                        encryptedMessages.add(new MorseMessage(name, messageText));
+	                        break;
+	                    case "Custom":
+	                        encryptedMessages.add(new CustomMessage(name, messageText));
+	                        break;
+	                    default:
+	                        System.err.println("Unrecognized encryptor type: " + encryptorType);
+	                }
+	            }
+	            // Skip the "-------------" line
+	            reader.readLine();
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+
+	
+	public static void storeUnencryptedMessage(UnencryptedMessage m, File storageFile) {
+        // Add the message to the list
+        addUnencryptedMessage(m);
+        // Store the message in the text file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(storageFile, true))) {
+            writer.write("Unencrypted Message\n");
+            writer.write("Name: " + m.getName() + "\n");
+            writer.write("Message: " + m.getMessageText() + "\n");
+            writer.write("-------------\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void storeEncryptedMessage(EncryptedMessage m, File storageFile) {
+        // Add the message to the list
+        addEncryptedMessage(m);
+        // Store the message in the text file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(storageFile, true))) {
+            writer.write("Encrypted Message\n");
+            String encryptorType = "";
+            if (m.getEncryptorUsed() instanceof HuffmanEncryptor) {
+                encryptorType = "Huffman";
+            } else if (m.getEncryptorUsed() instanceof MorseEncryptor) {
+                encryptorType = "Morse";
+            } else if (m.getEncryptorUsed() instanceof CustomEncryptor) {
+                encryptorType = "Custom";
+            }
+            writer.write("Encryptor Used: " + encryptorType + "\n");
+            writer.write("Name: " + m.getName() + "\n");
+            writer.write("Message: " + m.getMessageText() + "\n");
+            writer.write("-------------\n");
+            
+            System.out.println("here");
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Rewrite all messages to the text file
+    public static void rewriteMessagesToFile(File storageFile) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(storageFile, false))) {
+            for (UnencryptedMessage m : unencryptedMessages) {
+                writer.write("Unencrypted Message\n");
+                writer.write("Name: " + m.getName() + "\n");
+                writer.write("Message: " + m.getMessageText() + "\n");
+                writer.write("-------------\n");
+            }
+            for (EncryptedMessage m : encryptedMessages) {
+                writer.write("Encrypted Message\n");
+                writer.write("Name: " + m.getName() + "\n");
+                writer.write("Message: " + m.getMessageText() + "\n");
+                writer.write("-------------\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-	
-	public static void storeUnencryptedMessage(UnencryptedMessage m) {
-       // Add the message to the list
-       addUnencryptedMessage(m);
-       // Store the message in the text file
-       try (BufferedWriter writer = new BufferedWriter(new FileWriter("storage.txt", true))) {
-           writer.write("Unencrypted Message\n");
-           writer.write("Name: " + m.getName() + "\n");
-           writer.write("Message: " + m.getMessageText() + "\n");
-           writer.write("-------------\n");
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-   }
-   public static void wipeUnencryptedMessage(UnencryptedMessage m) {
-       // Remove the message from the list
-       unencryptedMessages.remove(m);
-       // Rewrite the remaining messages to the text file
-       rewriteMessagesToFile();
-   }
-   public static void storeEncryptedMessage(EncryptedMessage m) {
-       // Add the message to the list
-       addEncryptedMessage(m);
-       // Store the message in the text file
-       try (BufferedWriter writer = new BufferedWriter(new FileWriter("storage.txt", true))) {
-           writer.write("Encrypted Message\n");
-           writer.write(m.getEncryptorUsed() + "\n");
-           writer.write("Name: " + m.getName() + "\n");
-           writer.write("Message: " + m.getMessageText() + "\n");
-           writer.write("-------------\n");
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-   }
-   public static void wipeEncryptedMessage(EncryptedMessage m) {
-       // Remove the message from the list
-       encryptedMessages.remove(m);
-       // Rewrite the remaining messages to the text file
-       rewriteMessagesToFile();
-   }
-   // Helper method to rewrite all messages to the text file
-   private static void rewriteMessagesToFile() {
-       try (BufferedWriter writer = new BufferedWriter(new FileWriter("storage.txt", false))) {
-           for (UnencryptedMessage m : unencryptedMessages) {
-               writer.write("Unencrypted Message\n");
-               writer.write("Name: " + m.getName() + "\n");
-               writer.write("Message: " + m.getMessageText() + "\n");
-               writer.write("-------------\n");
-           }
-           for (EncryptedMessage m : encryptedMessages) {
-               writer.write("Encrypted Message\n");
-               writer.write("Name: " + m.getName() + "\n");
-               writer.write("Message: " + m.getMessageText() + "\n");
-               writer.write("-------------\n");
-           }
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-   }
 	
 }
