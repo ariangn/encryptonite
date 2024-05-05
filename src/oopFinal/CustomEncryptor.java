@@ -29,6 +29,7 @@ public class CustomEncryptor extends Encryptor{
 	void addPair(String f, String r) {
 		length++;
 		findReplaceList.add(new FindReplacePair(f,r));
+		
 	}
 	
 	ArrayList<FindReplacePair> getAllPairs() {
@@ -77,11 +78,15 @@ public class CustomEncryptor extends Encryptor{
 			//index of the text to replace in the string
 			int findIndex = encryptedText.indexOf(find);
 			//while there is still more text to replace, replace it!
-			while (encryptedText.indexOf(find) > 0) {
+			while (encryptedText.indexOf(find) >= 0) {
 				findIndex = encryptedText.indexOf(find);
 				System.out.println(encryptedText);
 				//this replaces the original text with the replace
-				encryptedText = (encryptedText.substring(0,findIndex) + replace + encryptedText.substring(findIndex + find.length(), encryptedText.length()));
+				if (findIndex == 0) {
+					encryptedText = (replace + encryptedText.substring(1,encryptedText.length()));
+				} else {
+					encryptedText = (encryptedText.substring(0,findIndex) + replace + encryptedText.substring(findIndex + find.length(), encryptedText.length()));
+				}
 			}
 			
 		}
@@ -94,29 +99,33 @@ public class CustomEncryptor extends Encryptor{
 		//these are the Strings to find and replace, these will change in the loops
 		String find;
 		String replace;
-		String unencryptedText = m.getMessageText();
+		String encryptedText = m.getMessageText();
 		
-		String encryptedText = String.valueOf(unencryptedText);
+		String decryptedText = String.valueOf(encryptedText);
 		
 		//iterate through all find replace pairs
 		for (int i = 0; i < length; i++) {
 			//find all instances of the find string
 			
-			find = getFindAt(i);
-			replace = getReplaceAt(i);
+			find = getReplaceAt(i);
+			replace = getFindAt(i);
 			
 			//index of the text to replace in the string
-			int findIndex = encryptedText.indexOf(find);
+			int findIndex = decryptedText.indexOf(find);
 			//while there is still more text to replace, replace it!
-			while (encryptedText.indexOf(find) > 0) {
-				findIndex = encryptedText.indexOf(find);
-				System.out.println(encryptedText);
+			while (decryptedText.indexOf(find) >= 0) {
+				findIndex = decryptedText.indexOf(find);
+				System.out.println(decryptedText);
 				//this replaces the original text with the replace
-				encryptedText = (encryptedText.substring(0,findIndex) + replace + encryptedText.substring(findIndex + find.length(), encryptedText.length()));
+				if (findIndex == 0) {
+					decryptedText = (replace + decryptedText.substring(1,decryptedText.length()));
+				} else {
+					decryptedText = (decryptedText.substring(0,findIndex) + replace + decryptedText.substring(findIndex + find.length(), decryptedText.length()));
+				}			
 			}
 			
 		}
-		return new UnencryptedMessage(m.getName(), "");
+		return new UnencryptedMessage(m.getName(), decryptedText);
 	}
 	
 }
