@@ -4,11 +4,15 @@ Message: the cow fell down
 -------------
 Encrypted Message
 Encryptor Used: Custom
-Name: Custom
-Message: I'm weally weally tiwed!
+
+Encryptor Used: 
+Name: tor Used: 
+Message: tom
 -------------
 Encrypted Message
-Encryptor Used: Huffman
-Name: huff
-Message: 101100 101100
+Encryptor Used: Custom
+
+Encryptor Used: 
+Name: dsadg
+Message: dsbgdgdgsb
 -------------
