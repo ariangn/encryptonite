@@ -91,7 +91,31 @@ public class CustomEncryptor extends Encryptor{
 
 	@Override
 	public UnencryptedMessage decrypt(EncryptedMessage m) {
-		// TODO Auto-generated method stub
+		//these are the Strings to find and replace, these will change in the loops
+		String find;
+		String replace;
+		String unencryptedText = m.getMessageText();
+		
+		String encryptedText = String.valueOf(unencryptedText);
+		
+		//iterate through all find replace pairs
+		for (int i = 0; i < length; i++) {
+			//find all instances of the find string
+			
+			find = getFindAt(i);
+			replace = getReplaceAt(i);
+			
+			//index of the text to replace in the string
+			int findIndex = encryptedText.indexOf(find);
+			//while there is still more text to replace, replace it!
+			while (encryptedText.indexOf(find) > 0) {
+				findIndex = encryptedText.indexOf(find);
+				System.out.println(encryptedText);
+				//this replaces the original text with the replace
+				encryptedText = (encryptedText.substring(0,findIndex) + replace + encryptedText.substring(findIndex + find.length(), encryptedText.length()));
+			}
+			
+		}
 		return new UnencryptedMessage(m.getName(), "");
 	}
 	
