@@ -78,6 +78,7 @@ public class CustomEncryptor extends Encryptor{
 			int findIndex = encryptedText.indexOf(find);
 			//while there is still more text to replace, replace it!
 			while (encryptedText.indexOf(find) > 0) {
+				findIndex = encryptedText.indexOf(find);
 				System.out.println(encryptedText);
 				//this replaces the original text with the replace
 				encryptedText = (encryptedText.substring(0,findIndex) + replace + encryptedText.substring(findIndex + find.length(), encryptedText.length()));
