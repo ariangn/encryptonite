@@ -56,6 +56,21 @@ public class CustomMessage extends EncryptedMessage {
 		this.oldMessage = oldMessage;
 		
 	}
+
+	public String getCustomEncryptionString() {
+		
+		String encryptionString = ""; 
+		
+		CustomEncryptor ce = (CustomEncryptor)this.encryptorUsed;
+		for (int i = 0; i < ce.getLength(); i++) {
+			encryptionString.concat(ce.getFindAt(i));
+			encryptionString.concat("/");
+			encryptionString.concat(ce.getReplaceAt(i));
+			encryptionString.concat("|");
+		}
+		
+		return encryptionString;
+	}
 	
 
 }

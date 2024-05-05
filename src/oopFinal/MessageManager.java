@@ -45,6 +45,9 @@ public class MessageManager {
 	                String messageText = reader.readLine().substring(9);
 	                unencryptedMessages.add(new UnencryptedMessage(name, messageText));
 	            } else if (line.equals("Encrypted Message")) {
+	            	
+	            	//if custom --> encryption string = substring (19)
+	            	
 	                String encryptorType = reader.readLine().substring(16); // Read the encryptor type
 	                String name = reader.readLine().substring(6);
 	                String messageText = reader.readLine().substring(9);
@@ -126,11 +129,13 @@ public class MessageManager {
                 writer.write("Encrypted Message\n");
                 String encryptorType = "";
                 if (m.getEncryptorUsed() instanceof HuffmanEncryptor) {
-                    encryptorType = "Huffman";
+                	writer.write("Encryptor Used: Huffman\n");
                 } else if (m.getEncryptorUsed() instanceof MorseEncryptor) {
-                    encryptorType = "Morse";
+                	writer.write("Encryptor Used: Morse\n");
                 } else if (m.getEncryptorUsed() instanceof CustomEncryptor) {
-                    encryptorType = "Custom";
+                	writer.write("Encryptor Used: Custom\n");
+                	CustomMessage cm = (CustomMessage)m;
+                	writer.write("Encryption String: " + cm.getCustomEncryptionString() + "\n");
                 }
                 writer.write("Encryptor Used: " + encryptorType + "\n");
                 writer.write("Name: " + m.getName() + "\n");
