@@ -56,7 +56,9 @@ public class HuffmanEncryptor extends Encryptor{
         
         String output = applyEncryption(input, huffmanCode);
                 
-        return new HuffmanMessage(inputMessage.getName(), output, this);
+        HuffmanMessage hm = new HuffmanMessage(inputMessage.getName(), output, this);
+        hm.setOldMessage(input);
+        return hm;
 	}
 	
 	public static Map<Character, Integer> countLetterFrequency(String input) {
@@ -105,7 +107,7 @@ public class HuffmanEncryptor extends Encryptor{
 
 	@Override
 	public UnencryptedMessage decrypt(EncryptedMessage m) {
-		return new UnencryptedMessage(m.getName(), m.getMessageText());
+		return new UnencryptedMessage(m.getName(), m.getOldMessage());
 	}
 
 }

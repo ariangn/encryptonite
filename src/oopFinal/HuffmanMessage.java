@@ -4,6 +4,7 @@ public class HuffmanMessage extends EncryptedMessage{
 
 	String name;
 	String messageText;
+	String oldMessage;
 	
 	private Encryptor encryptorUsed;
 	
@@ -35,6 +36,17 @@ public class HuffmanMessage extends EncryptedMessage{
 	@Override
 	public Encryptor getEncryptorUsed() {
 		return encryptorUsed;
+	}
+
+	@Override
+	public String getOldMessage() {
+		return oldMessage;
+	}
+
+	@Override
+	public void setOldMessage(String oldMessage) {
+		this.oldMessage = oldMessage;
+		
 	}
 	
 
