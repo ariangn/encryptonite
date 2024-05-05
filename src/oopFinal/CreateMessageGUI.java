@@ -60,16 +60,16 @@ public class CreateMessageGUI extends JFrame {
 		contentPane.add(lblName);
 		
 		JLabel lblWriteTextHere = new JLabel("Write Your Message Here");
-		lblWriteTextHere.setBounds(141, 88, 162, 16);
+		lblWriteTextHere.setBounds(141, 100, 162, 16);
 		contentPane.add(lblWriteTextHere);
 		
 		textMessage = new JTextArea();
-		textMessage.setBounds(47, 116, 367, 177);
+		textMessage.setBounds(41, 130, 367, 177);
 		contentPane.add(textMessage);
 		textMessage.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane(textMessage);
-		scrollPane.setBounds(47, 116, 367, 177);
+		scrollPane.setBounds(41, 130, 367, 177);
 		contentPane.add(scrollPane);
 		
 		JLabel lblCreateMessage = new JLabel("Create a Message");
