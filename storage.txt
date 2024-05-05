@@ -1,18 +1,6 @@
-Unencrypted Message
-Name: message
-Message: asdfasdf
--------------
-Unencrypted Message
-Name: henry
-Message: this is a test
--------------
-Unencrypted Message
-Name: message
-Message: this is a test
--------------
 Encrypted Message
-Encryptor Used: Huffman
-Encryptor Used: 
-Name: tor Used: 
-Message: ry2
+Encryptor Used: Custom
+Name: Custom
+Message: bbbbbbb
+Encryption String: a/b
 -------------

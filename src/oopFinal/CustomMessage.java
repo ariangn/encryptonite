@@ -1,5 +1,7 @@
 package oopFinal;
 
+import java.util.ArrayList;
+
 public class CustomMessage extends EncryptedMessage {
 	
 	private String name;
@@ -58,18 +60,29 @@ public class CustomMessage extends EncryptedMessage {
 	}
 
 	public String getCustomEncryptionString() {
-		
 		String encryptionString = ""; 
 		
 		CustomEncryptor ce = (CustomEncryptor)this.encryptorUsed;
 		for (int i = 0; i < ce.getLength(); i++) {
-			encryptionString.concat(ce.getFindAt(i));
-			encryptionString.concat("/");
-			encryptionString.concat(ce.getReplaceAt(i));
-			encryptionString.concat("|");
+			encryptionString += ce.getFindAt(i) + "/" + ce.getReplaceAt(i) + "|";
+		}
+		
+		if (!encryptionString.isEmpty()) {
+			encryptionString = encryptionString.substring(0, encryptionString.length() - 1);
 		}
 		
 		return encryptionString;
+	}
+	
+	public void loadCustomEncryptionString(String encryptionString) {		
+		String[] stringArray = encryptionString.split("\\|");
+		
+		for (String s: stringArray) {
+			String[] temp = s.split("/");
+			if (temp.length == 2) {
+				((CustomEncryptor)this.encryptorUsed).addPair(temp[0], temp[1]);
+			}
+		}
 	}
 	
 
