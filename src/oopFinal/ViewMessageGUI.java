@@ -68,22 +68,22 @@ public class ViewMessageGUI extends JFrame {
 				new MainGUI().setVisible(true);
 			}
 		});
-		btnBack.setBounds(6, 354, 117, 29);
+		btnBack.setBounds(39, 354, 117, 29);
 		contentPane.add(btnBack);
 		
 		JLabel lblTitle = new JLabel("View Messages");
 		lblTitle.setFont(new Font("Kohinoor Telugu", Font.PLAIN, 15));
-		lblTitle.setBounds(161, 6, 147, 16);
+		lblTitle.setBounds(170, 10, 147, 16);
 		contentPane.add(lblTitle);
 		
 		JScrollPane scrollPane = new JScrollPane(innerPanel);
-		scrollPane.setBounds(29, 73, 372, 256);
+		scrollPane.setBounds(39, 80, 372, 256);
 		contentPane.add(scrollPane);
 		
 		ButtonGroup viewSelect = new ButtonGroup();
 		
 		JRadioButton rdbtnEncrypted = new JRadioButton("Encrypted");
-		rdbtnEncrypted.setBounds(240, 44, 141, 23);
+		rdbtnEncrypted.setBounds(250, 44, 141, 23);
 		contentPane.add(rdbtnEncrypted);
 		viewSelect.add(rdbtnEncrypted);
 		rdbtnEncrypted.addActionListener(new ActionListener() {
@@ -97,7 +97,7 @@ public class ViewMessageGUI extends JFrame {
 		
 		
 		JRadioButton rdbtnUnencrypted = new JRadioButton("Unencrypted");
-		rdbtnUnencrypted.setBounds(39, 44, 141, 23);
+		rdbtnUnencrypted.setBounds(85, 44, 141, 23);
 		contentPane.add(rdbtnUnencrypted);
 		rdbtnUnencrypted.setSelected(true);
 		viewSelect.add(rdbtnUnencrypted);
