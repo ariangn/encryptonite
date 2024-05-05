@@ -61,7 +61,7 @@ public class HuffmanEncryptor extends Encryptor{
         return hm;
 	}
 	
-	public static Map<Character, Integer> countLetterFrequency(String input) {
+	private static Map<Character, Integer> countLetterFrequency(String input) {
 
         Map<Character, Integer> frequencyMap = new HashMap<>();
 
@@ -90,7 +90,7 @@ public class HuffmanEncryptor extends Encryptor{
 	    generateCodes(root.right, code + "1", huffmanCodes);
 	}
 	
-	public static String applyEncryption(String input, Map<Character, String> huffmanCodes) {
+	private static String applyEncryption(String input, Map<Character, String> huffmanCodes) {
 	    StringBuilder encryptedText = new StringBuilder();
 	    for (int i = 0; i < input.length(); i++) {
 	        char ch = input.charAt(i);

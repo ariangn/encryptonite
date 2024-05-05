@@ -74,7 +74,7 @@ public class MorseEncryptor extends Encryptor {
         insert(root, ' ', "/");
     }
     
-    public void insert(Node root, char letter, String code) {
+    private void insert(Node root, char letter, String code) {
 	    Node current = root;
 	    for (int i = 0; i < code.length(); i++) {
 	        if (code.charAt(i) == '.') {
@@ -112,7 +112,7 @@ public class MorseEncryptor extends Encryptor {
 	}
 	
 	// search for morse code for a given character
-    String search(Node root, char letter) {
+    private String search(Node root, char letter) {
         if (root == null) return null;
         if (root.data == letter) return "";
         String leftPath = search(root.left, letter);
@@ -149,7 +149,7 @@ public class MorseEncryptor extends Encryptor {
 		return new UnencryptedMessage(m.getName(),output.toString());
 	}
 	
-	char searchMorseCode(Node root, String morseCode) {
+	private char searchMorseCode(Node root, String morseCode) {
 	    Node current = root;
 	    for (int i = 0; i < morseCode.length(); i++) {
 	        char morseChar = morseCode.charAt(i);
