@@ -65,6 +65,7 @@ public class ViewEncryptedGUI extends JFrame {
 		
 		textName = new JTextField();
 		textName.setBounds(110, 25, 228, 26);
+		textName.setEditable(false);
 		contentPane.add(textName);
 		textName.setColumns(10);
 		

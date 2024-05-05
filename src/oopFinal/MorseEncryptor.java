@@ -17,32 +17,32 @@ public class MorseEncryptor extends Encryptor {
     MorseEncryptor() {
         root = new Node(' ');
         // populate bst with morse code mappings
-        insert(root, 'A', ".-");
-        insert(root, 'B', "-...");
-        insert(root, 'C', "-.-.");
-        insert(root, 'D', "-..");
-        insert(root, 'E', ".");
-        insert(root, 'F', "..-.");
-        insert(root, 'G', "--.");
-        insert(root, 'H', "....");
-        insert(root, 'I', "..");
-        insert(root, 'J', ".---");
-        insert(root, 'K', "-.-");
-        insert(root, 'L', ".-..");
-        insert(root, 'M', "--");
-        insert(root, 'N', "-.");
-        insert(root, 'O', "---");
-        insert(root, 'P', ".--.");
-        insert(root, 'Q', "--.-");
-        insert(root, 'R', ".-.");
-        insert(root, 'S', "...");
-        insert(root, 'T', "-");
-        insert(root, 'U', "..-");
-        insert(root, 'V', "...-");
-        insert(root, 'W', ".--");
-        insert(root, 'X', "-..-");
-        insert(root, 'Y', "-.--");
-        insert(root, 'Z', "--..");
+        insert(root, 'a', ".-");
+        insert(root, 'b', "-...");
+        insert(root, 'c', "-.-.");
+        insert(root, 'd', "-..");
+        insert(root, 'e', ".");
+        insert(root, 'f', "..-.");
+        insert(root, 'g', "--.");
+        insert(root, 'h', "....");
+        insert(root, 'i', "..");
+        insert(root, 'j', ".---");
+        insert(root, 'k', "-.-");
+        insert(root, 'l', ".-..");
+        insert(root, 'm', "--");
+        insert(root, 'n', "-.");
+        insert(root, 'o', "---");
+        insert(root, 'p', ".--.");
+        insert(root, 'q', "--.-");
+        insert(root, 'r', ".-.");
+        insert(root, 's', "...");
+        insert(root, 't', "-");
+        insert(root, 'u', "..-");
+        insert(root, 'v', "...-");
+        insert(root, 'w', ".--");
+        insert(root, 'x', "-..-");
+        insert(root, 'y', "-.--");
+        insert(root, 'z', "--..");
         insert(root, '0', "-----");
         insert(root, '1', ".----");
         insert(root, '2', "..---");
@@ -97,7 +97,7 @@ public class MorseEncryptor extends Encryptor {
 		String input = m.getMessageText();
 		StringBuilder output = new StringBuilder();
 		
-		for (char c : input.toUpperCase().toCharArray()) {
+		for (char c : input.toLowerCase().toCharArray()) {
             String code;
             if (c == ' ') {
                 code = "/"; 
@@ -136,15 +136,33 @@ public class MorseEncryptor extends Encryptor {
 	    for (String morseCharacter : morseCharacters) {
 	        if (morseCharacter.equals("/")) {
 	            output.append(" "); // Represent space character
+	            System.out.print(" ");
 	        } else {
-	        	char c = morseCharacter.charAt(0);
-	            char letter = search(root, c).charAt(0);
+	            char letter = searchMorseCode(root, morseCharacter);
 	            if (letter != '\0') {
 	                output.append(letter);
+	                System.out.print(letter);
 	            }
 	        }
 	    }	
-		//PLACEHOLDER, change later to actual thing to return
-		return new UnencryptedMessage(m.getName(), output.toString());
+		
+		return new UnencryptedMessage(m.getName(),output.toString());
+	}
+	
+	char searchMorseCode(Node root, String morseCode) {
+	    Node current = root;
+	    for (int i = 0; i < morseCode.length(); i++) {
+	        char morseChar = morseCode.charAt(i);
+	        if (morseChar == '.') {
+	            if (current.left == null)
+	                return '\0'; 
+	            current = current.left;
+	        } else if (morseChar == '-') {
+	            if (current.right == null)
+	                return '\0'; 
+	            current = current.right;
+	        }
+	    }
+	    return current.data;
 	}
 }
