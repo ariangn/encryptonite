@@ -22,9 +22,9 @@ public class HuffmanEncryptor extends Encryptor{
 	}
 	
 	@Override
-	public HuffmanMessage encrypt(UnencryptedMessage inputMessage) {
+	public HuffmanMessage encrypt(UnencryptedMessage m) {
 		
-		String input = inputMessage.getMessageText();
+		String input = m.getMessageText();
         
         Map<Character, Integer> frequencyMap = countLetterFrequency(input);
         
@@ -56,7 +56,7 @@ public class HuffmanEncryptor extends Encryptor{
         
         String output = applyEncryption(input, huffmanCode);
                 
-        HuffmanMessage hm = new HuffmanMessage(inputMessage.getName(), output, this);
+        HuffmanMessage hm = new HuffmanMessage(m.getName(), output, this);
         hm.setOldMessage(input);
         return hm;
 	}
