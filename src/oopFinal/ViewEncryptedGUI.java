@@ -16,7 +16,7 @@ import javax.swing.JButton;
 public class ViewEncryptedGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textName;
 	
 	//the current message being displayed in this menu
 	private EncryptedMessage messageShown;
@@ -63,10 +63,10 @@ public class ViewEncryptedGUI extends JFrame {
 		lblName.setBounds(44, 30, 54, 16);
 		contentPane.add(lblName);
 		
-		textField = new JTextField();
-		textField.setBounds(110, 25, 228, 26);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textName = new JTextField();
+		textName.setBounds(110, 25, 228, 26);
+		contentPane.add(textName);
+		textName.setColumns(10);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(78, 90, 285, 118);
@@ -106,9 +106,12 @@ public class ViewEncryptedGUI extends JFrame {
 				new ViewMessageGUI().setVisible(true);
 			}
 		});
+		
+		showMessageText(textArea);
 	}
 	
 	void showMessageText(JTextArea textArea) {
+		textName.setText(messageShown.getName());
 		textArea.setText(messageShown.getMessageText());
 	}
 	
