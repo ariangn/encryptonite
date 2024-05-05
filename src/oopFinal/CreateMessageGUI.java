@@ -20,7 +20,7 @@ public class CreateMessageGUI extends JFrame {
 	private JTextField textMessageName;
 	private JTextArea textMessage;
 	private JButton btnBack;
-	private JButton btnCreate;
+	private JButton btnReset;
 	private JButton btnCreator;
 
 	/**
@@ -88,9 +88,14 @@ public class CreateMessageGUI extends JFrame {
 			}
 		});
 		
-		btnCreate = new JButton("Reset");
-		btnCreate.setBounds(171, 366, 117, 29);
-		contentPane.add(btnCreate);
+		btnReset = new JButton("Reset");
+		btnReset.setBounds(171, 366, 117, 29);
+		contentPane.add(btnReset);
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reset();
+			}
+		});
 		
 		btnCreator = new JButton("Create");
 		btnCreator.setBounds(300, 366, 117, 29);
@@ -113,5 +118,11 @@ public class CreateMessageGUI extends JFrame {
 	private void create() {
 		UnencryptedMessage m = new UnencryptedMessage(textMessageName.getText(),textMessage.getText());
 		MessageManager.addUnencryptedMessage(m);
+	}
+	
+	private void reset() {
+		textMessage.setText("");
+		textMessage.revalidate();
+		textMessage.repaint();
 	}
 }

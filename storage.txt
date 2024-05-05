@@ -6,9 +6,13 @@ Unencrypted Message
 Name: henry
 Message: this is a test
 -------------
+Unencrypted Message
+Name: message
+Message: this is a test
+-------------
 Encrypted Message
 Encryptor Used: Huffman
 Encryptor Used: 
-Name: henry2
-Message: 111 11001010 00110110000111010011 001011111010011100
+Name: tor Used: 
+Message: ry2
 -------------

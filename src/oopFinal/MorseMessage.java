@@ -35,6 +35,7 @@ public class MorseMessage extends EncryptedMessage {
 		return encryptorUsed;
 	}
 	
+	@Override
 	public String getOldMessage() {
 		return oldMessage;
 	}
