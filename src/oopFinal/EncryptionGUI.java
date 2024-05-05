@@ -1,6 +1,5 @@
 package oopFinal;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,13 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JSpinner;
-import javax.swing.JList;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
 import java.awt.Font;
-import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -66,8 +62,6 @@ public class EncryptionGUI extends JFrame {
 		lblTitle.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		lblTitle.setBounds(173, 6, 116, 35);
 		contentPane.add(lblTitle);
-		
-		ButtonGroup encryptSelect = new ButtonGroup();
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(55, 351, 117, 29);
@@ -120,6 +114,8 @@ public class EncryptionGUI extends JFrame {
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		scrollPane.setBounds(52, 53, 350, 175);
 		contentPane.add(scrollPane);
+		
+		ButtonGroup encryptSelect = new ButtonGroup();
 		
 		JRadioButton rdbtnOriginal = new JRadioButton("Original");
 		rdbtnOriginal.setBounds(40, 269, 86, 23);
