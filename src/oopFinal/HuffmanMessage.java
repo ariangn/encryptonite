@@ -14,6 +14,7 @@ public class HuffmanMessage extends EncryptedMessage{
 	public HuffmanMessage(String n, String s) {
 		name = n;
 		messageText = s;
+		encryptorUsed = new HuffmanEncryptor();
 	}
 	
 	public HuffmanMessage(String n, String s, Encryptor e) {
