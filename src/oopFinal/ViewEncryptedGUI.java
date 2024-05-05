@@ -52,6 +52,8 @@ public class ViewEncryptedGUI extends JFrame {
 		//set the message that will be shown by the GUI
 		messageShown = m;
 		
+		messageShownIndex = index;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
@@ -102,7 +104,7 @@ public class ViewEncryptedGUI extends JFrame {
 		contentPane.add(btnDelete);
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				delete();
+				MessageManager.removeEncryptedMessage(messageShownIndex);
 				contentPane.setVisible(false);
 				dispose();
 				new ViewMessageGUI().setVisible(true);
@@ -115,10 +117,6 @@ public class ViewEncryptedGUI extends JFrame {
 	void showMessageText(JTextArea textArea) {
 		textName.setText(messageShown.getName());
 		textArea.setText(messageShown.getMessageText());
-	}
-	
-	void delete() {
-		
 	}
 	
 	void deencryptMessage() {

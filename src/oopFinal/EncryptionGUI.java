@@ -64,13 +64,13 @@ public class EncryptionGUI extends JFrame {
 		
 		JLabel lblTitle = new JLabel("Encrypt Text");
 		lblTitle.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		lblTitle.setBounds(166, 6, 116, 35);
+		lblTitle.setBounds(173, 6, 116, 35);
 		contentPane.add(lblTitle);
 		
 		ButtonGroup encryptSelect = new ButtonGroup();
 		
 		JButton btnBack = new JButton("Back");
-		btnBack.setBounds(6, 351, 117, 29);
+		btnBack.setBounds(55, 351, 117, 29);
 		contentPane.add(btnBack);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,7 +81,7 @@ public class EncryptionGUI extends JFrame {
 		});
 		
 		JButton btnEncrypt = new JButton("Encrypt!");
-		btnEncrypt.setBounds(153, 314, 117, 29);
+		btnEncrypt.setBounds(167, 314, 117, 29);
 		contentPane.add(btnEncrypt);
 		//it starts greyed out and unclickable, because no encryption method is selected
 		btnEncrypt.setEnabled(false);
@@ -94,9 +94,22 @@ public class EncryptionGUI extends JFrame {
 			}
 		});
 		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.setBounds(280, 351, 117, 29);
+		contentPane.add(btnDelete);
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int messageIndex = MessageManager.getAllUnencryptedMessages().indexOf(messageShown);
+				MessageManager.removeUnencryptedMessage(messageIndex);
+				contentPane.setVisible(false);
+				dispose();
+				new ViewMessageGUI().setVisible(true);
+			}
+		});
+		
 		
 		JLabel lblPreview = new JLabel("Preview");
-		lblPreview.setBounds(189, 235, 61, 16);
+		lblPreview.setBounds(200, 235, 61, 16);
 		contentPane.add(lblPreview);
 		
 		JTextArea textArea = new JTextArea();
@@ -109,7 +122,7 @@ public class EncryptionGUI extends JFrame {
 		contentPane.add(scrollPane);
 		
 		JRadioButton rdbtnOriginal = new JRadioButton("Original");
-		rdbtnOriginal.setBounds(29, 279, 86, 23);
+		rdbtnOriginal.setBounds(40, 269, 86, 23);
 		rdbtnOriginal.setSelected(true);
 		contentPane.add(rdbtnOriginal);
 		encryptSelect.add(rdbtnOriginal);
@@ -122,7 +135,7 @@ public class EncryptionGUI extends JFrame {
 		});
 		
 		JRadioButton rdbtnHuffman = new JRadioButton("Huffman");
-		rdbtnHuffman.setBounds(108, 279, 96, 23);
+		rdbtnHuffman.setBounds(130, 269, 96, 23);
 		contentPane.add(rdbtnHuffman);
 		encryptSelect.add(rdbtnHuffman);
 		rdbtnHuffman.addActionListener(new ActionListener() {
@@ -135,7 +148,7 @@ public class EncryptionGUI extends JFrame {
 		});
 		
 		JRadioButton rdbtnMorse = new JRadioButton("Morse Code");
-		rdbtnMorse.setBounds(198, 279, 116, 23);
+		rdbtnMorse.setBounds(222, 269, 116, 23);
 		contentPane.add(rdbtnMorse);
 		encryptSelect.add(rdbtnMorse);
 		rdbtnMorse.addActionListener(new ActionListener() {
@@ -148,7 +161,7 @@ public class EncryptionGUI extends JFrame {
 		});
 		
 		JRadioButton rdbtnCustom = new JRadioButton("Custom");
-		rdbtnCustom.setBounds(310, 279, 96, 23);
+		rdbtnCustom.setBounds(333, 269, 96, 23);
 		contentPane.add(rdbtnCustom);
 		encryptSelect.add(rdbtnCustom);
 		rdbtnCustom.addActionListener(new ActionListener() {
