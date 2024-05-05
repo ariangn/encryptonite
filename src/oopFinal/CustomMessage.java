@@ -18,6 +18,7 @@ public class CustomMessage extends EncryptedMessage {
 	public CustomMessage(String n, String s) {
 		name = n;
 		messageText = s;
+		encryptorUsed = new CustomEncryptor();
 	}
 	
 	public CustomMessage(String n, String s, Encryptor e) {

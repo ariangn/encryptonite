@@ -29,6 +29,7 @@ public class CustomEncryptor extends Encryptor{
 	void addPair(String f, String r) {
 		length++;
 		findReplaceList.add(new FindReplacePair(f,r));
+		
 	}
 	
 	ArrayList<FindReplacePair> getAllPairs() {
