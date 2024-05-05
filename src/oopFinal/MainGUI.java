@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 public class MainGUI extends JFrame {
 
     private JFrame frame;
-    private static final String FILE_NAME = "/Users/connordavis/Documents/GitHub/oopfinal/src/oopFinal/storage.txt";
+    private static final String FILE_NAME = "./storage.txt";
 
     public static void main(String[] args) {
 
@@ -83,7 +83,7 @@ public class MainGUI extends JFrame {
             }
         });
 
-        JButton btnCreateCustomEncryption = new JButton("Modify Custom Encryption");
+        JButton btnCreateCustomEncryption = new JButton("Modify Custom Encryptor");
         btnCreateCustomEncryption.setBounds(133, 183, 188, 29);
         frame.getContentPane().add(btnCreateCustomEncryption);
         btnCreateCustomEncryption.addActionListener(new ActionListener() {

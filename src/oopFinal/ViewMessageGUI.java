@@ -121,8 +121,6 @@ public class ViewMessageGUI extends JFrame {
 		messageButtons.clear();
 		
 		ArrayList<UnencryptedMessage> messages = MessageManager.getAllUnencryptedMessages();
-
-		System.out.println("number of messages: " + messages.size());
 		
 		//loop through unencrypted messages and add them all as buttons
 		for (int i = 0; i < messages.size(); i++) {
@@ -161,8 +159,6 @@ public class ViewMessageGUI extends JFrame {
 		messageButtons.clear();
 		
 		ArrayList<EncryptedMessage> messages = MessageManager.getAllEncryptedMessages();
-
-		System.out.println("number of encrypted messages: " + messages.size());
 		
 		//loop through encrypted messages and add them all as buttons
 		for (int i = 0; i < messages.size(); i++) {
@@ -180,9 +176,8 @@ public class ViewMessageGUI extends JFrame {
 					
 					int index = messageButtons.indexOf((JButton)(e.getSource()));
 					EncryptedMessage m = messages.get(index);
-					//System.out.println("message at: " + index);
 					
-					//open the encryptioGUI and pass in the selected message as an argument
+					//open the encryptionGUI and pass in the selected message as an argument
 					
 					new ViewEncryptedGUI(m, m.getEncryptorUsed(), index).setVisible(true);
 				}

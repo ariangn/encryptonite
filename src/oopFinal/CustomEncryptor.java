@@ -80,7 +80,6 @@ public class CustomEncryptor extends Encryptor{
 			//while there is still more text to replace, replace it!
 			while (encryptedText.indexOf(find) >= 0) {
 				findIndex = encryptedText.indexOf(find);
-				System.out.println(encryptedText);
 				//this replaces the original text with the replace
 				if (findIndex == 0) {
 					encryptedText = (replace + encryptedText.substring(1,encryptedText.length()));
@@ -115,7 +114,6 @@ public class CustomEncryptor extends Encryptor{
 			//while there is still more text to replace, replace it!
 			while (decryptedText.indexOf(find) >= 0) {
 				findIndex = decryptedText.indexOf(find);
-				System.out.println(decryptedText);
 				//this replaces the original text with the replace
 				if (findIndex == 0) {
 					decryptedText = (replace + decryptedText.substring(1,decryptedText.length()));
