@@ -150,6 +150,8 @@ public class CustomGUI extends JFrame {
 			System.out.println(e.getMessage());
 		}
 		
+		test();
+		
 	}
 	
 	//add a Find-Replace row with no text
