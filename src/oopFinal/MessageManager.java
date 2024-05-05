@@ -45,7 +45,7 @@ public class MessageManager {
 	                String messageText = reader.readLine().substring(9);
 	                unencryptedMessages.add(new UnencryptedMessage(name, messageText));
 	            } else if (line.equals("Encrypted Message")) {
-	                String encryptorType = reader.readLine().substring(15); // Read the encryptor type
+	                String encryptorType = reader.readLine().substring(16); // Read the encryptor type
 	                String name = reader.readLine().substring(6);
 	                String messageText = reader.readLine().substring(9);
 	                
@@ -53,9 +53,9 @@ public class MessageManager {
 	                    case "Huffman":
 	                        encryptedMessages.add(new HuffmanMessage(name, messageText));
 	                        break;
-	                    case "Morse":
-	                        encryptedMessages.add(new MorseMessage(name, messageText));
-	                        break;
+//	                    case "Morse":
+//	                        encryptedMessages.add(new MorseMessage(name, messageText));
+//	                        break;
 	                    case "Custom":
 	                        encryptedMessages.add(new CustomMessage(name, messageText));
 	                        break;
