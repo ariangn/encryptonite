@@ -7,6 +7,11 @@ public class MorseMessage extends EncryptedMessage {
 	
 	private Encryptor encryptorUsed;
 	
+	public MorseMessage(String n, String s) {
+		name = n;
+		messageText = s;
+	}
+	
 	public MorseMessage(String n, String s, Encryptor e) {
 		name = n;
 		messageText = s;
