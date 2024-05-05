@@ -99,8 +99,9 @@ public class HuffmanEncryptor extends Encryptor{
 
 	@Override
 	public UnencryptedMessage decrypt(EncryptedMessage m) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		//for now:
+		return new UnencryptedMessage(m.getName(), m.getMessageText());
 	}
 
 }

@@ -46,7 +46,11 @@ public class ViewEncryptedGUI extends JFrame {
 	 */
 	public ViewEncryptedGUI(EncryptedMessage m, Encryptor en, int index) {
 		
+		//set the encryptor to be used for decrypting
 		currentEncryptor = en;
+		
+		//set the message that will be shown by the GUI
+		messageShown = m;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
