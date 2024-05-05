@@ -103,8 +103,8 @@ public class CustomEncryptor extends Encryptor{
 		for (int i = 0; i < length; i++) {
 			//find all instances of the find string
 			
-			find = getFindAt(i);
-			replace = getReplaceAt(i);
+			find = getReplaceAt(i);
+			replace = getFindAt(i);
 			
 			//index of the text to replace in the string
 			int findIndex = encryptedText.indexOf(find);
