@@ -277,4 +277,12 @@ public class CustomGUI extends JFrame {
 		}
 		
 	}
+	
+	//REMOVE THIS LATER
+	void test() {
+		UnencryptedMessage m = new UnencryptedMessage("name","hello world");
+		CustomMessage cm = (CustomMessage)((CustomEncryptor.getCurrentEncryptor()).encrypt(m));
+		System.out.println("encrypted message test: " + cm.getMessageText());
+		
+	}
 }
