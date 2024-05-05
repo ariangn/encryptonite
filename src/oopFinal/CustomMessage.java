@@ -32,8 +32,7 @@ public class CustomMessage extends EncryptedMessage {
 
 	@Override
 	public String getMessageText() {
-		// TODO Auto-generated method stub
-		return null;
+		return messageText;
 	}
 	
 	public String getName() {

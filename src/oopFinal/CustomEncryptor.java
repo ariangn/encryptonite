@@ -70,11 +70,16 @@ public class CustomEncryptor extends Encryptor{
 		//iterate through all find replace pairs
 		for (int i = 0; i < length; i++) {
 			//find all instances of the find string
+			
 			find = getFindAt(i);
+			replace = getReplaceAt(i);
+			
+			//index of the text to replace in the string
 			int findIndex = unencryptedText.indexOf(find);
 			//while there is still more text to replace, replace it!
 			while (encryptedText.indexOf(find) > 0) {
-				encryptedText = (encryptedText.substring(0,findIndex) + encryptedText.substring(findIndex + find.length(), encryptedText.length()));
+				//this replaces the original text with the replace
+				encryptedText = (encryptedText.substring(0,findIndex) + replace + encryptedText.substring(findIndex + find.length(), encryptedText.length()));
 			}
 			
 		}
@@ -85,7 +90,7 @@ public class CustomEncryptor extends Encryptor{
 	@Override
 	public UnencryptedMessage decrypt(EncryptedMessage m) {
 		// TODO Auto-generated method stub
-		return null;
+		return new UnencryptedMessage(m.getName(), "");
 	}
 	
 }
