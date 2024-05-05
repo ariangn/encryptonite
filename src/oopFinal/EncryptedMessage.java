@@ -3,6 +3,8 @@ package oopFinal;
 public abstract class EncryptedMessage {
 	
 	//each encrypted message should store the encryptor used to encrypt it
+	private String name;
+	private String messageText;
 	private String oldMessage;
 	private Encryptor encryptorUsed;
 	
