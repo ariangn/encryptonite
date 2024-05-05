@@ -124,6 +124,7 @@ public class CustomGUI extends JFrame {
 		// go back to main gui
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				save();
 				contentPane.setVisible(false);
 				dispose();
 				new MainGUI().setVisible(true);
@@ -143,23 +144,31 @@ public class CustomGUI extends JFrame {
 		scrollPane.setBounds(44, 91, 374, 217);
 		contentPane.add(scrollPane);
 		
-//		textNewFind = new JTextField();
-//		textNewFind.setBounds(44, 105, 130, 29);
-//		innerPanel.add(textNewFind);
-//		textNewFind.setColumns(10);
+		try {
+			loadCustomEncryptor();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 	}
 	
+	//add a Find-Replace row with no text
 	void addFindReplaceRow() {
+		addFindReplaceRow("","");
+	}
+	
+	void addFindReplaceRow(String findText, String replaceText) {
 		textNewFind = new JTextField();
 		System.out.println(findReplaceTexts.size());
 		textNewFind.setBounds(44, 10, 100, 30 );
+		textNewFind.setText(findText);
 		innerPanel1.add(textNewFind);
 		textNewFind.setColumns(10);
 		textNewFind.setMaximumSize(new Dimension(150,30));
 		
 		textNewReplace = new JTextField();
 		textNewReplace.setBounds(144, 10 , 100, 30 );
+		textNewReplace.setText(replaceText);
 		innerPanel2.add(textNewReplace);
 		textNewReplace.setColumns(10);
 		textNewReplace.setMaximumSize(new Dimension(150,30));
@@ -242,7 +251,6 @@ public class CustomGUI extends JFrame {
 		contentPane.repaint();
 	}
 	
-	
 	//this will store all the find-replace pairs entered by the user in a CustomEncryptor object
 	//and make this object the current Custom Encryption method (global field currentEncryptor in CustomEncryptor)
 	void save() {
@@ -254,5 +262,19 @@ public class CustomGUI extends JFrame {
 		}
 		
 		CustomEncryptor.setCurrentEncryptor(custom);
+	}
+	
+	//load the previous encryption method into the GUI
+	void loadCustomEncryptor() {
+		
+		CustomEncryptor currentEncryptor = CustomEncryptor.getCurrentEncryptor();
+		
+		System.out.println("length: " + currentEncryptor.getLength());
+		
+		//iterate through all find-replace pairs and add them 
+		for (int i = 0; i < currentEncryptor.getLength(); i++) {
+			addFindReplaceRow(currentEncryptor.getFindAt(i), currentEncryptor.getReplaceAt(i));
+		}
+		
 	}
 }

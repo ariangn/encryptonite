@@ -27,6 +27,7 @@ public class CustomEncryptor extends Encryptor{
 	}
 	
 	void addPair(String f, String r) {
+		length++;
 		findReplaceList.add(new FindReplacePair(f,r));
 	}
 	
@@ -40,6 +41,10 @@ public class CustomEncryptor extends Encryptor{
 	
 	String getReplaceAt(int index) {
 		return findReplaceList.get(index).replace;
+	}
+	
+	int getLength() {
+		return length;
 	}
 	
 	//this is how other classes will access the current custom Encryptor being used
