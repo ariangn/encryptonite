@@ -99,7 +99,12 @@ public class MorseEncryptor extends Encryptor {
 		StringBuilder output = new StringBuilder();
 		
 		for (char c : input.toUpperCase().toCharArray()) {
-            String code = search(root, c);
+            String code;
+            if (c == ' ') {
+                code = "/"; 
+            } else {
+                code = search(root, c);
+            }
             if (code != null) {
                 output.append(code).append(" ");
             }
