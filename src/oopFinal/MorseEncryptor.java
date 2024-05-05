@@ -94,7 +94,6 @@ public class MorseEncryptor extends Encryptor {
 	
 	@Override
 	public MorseMessage encrypt(UnencryptedMessage m) {
-		// TODO Auto-generated method stub
 		String input = m.getMessageText();
 		StringBuilder output = new StringBuilder();
 		
@@ -125,9 +124,27 @@ public class MorseEncryptor extends Encryptor {
 
 	@Override
 	public UnencryptedMessage decrypt(EncryptedMessage m) {
-		// TODO Auto-generated method stub
 		
+		MorseMessage mm = (MorseMessage)m;
+		
+		String input = mm.getMessageText();
+		StringBuilder output = new StringBuilder();
+
+	    // split by spaces 
+	    String[] morseCharacters = input.split("\\s+");
+
+	    for (String morseCharacter : morseCharacters) {
+	        if (morseCharacter.equals("/")) {
+	            output.append(" "); // Represent space character
+	        } else {
+	        	char c = morseCharacter.charAt(0);
+	            char letter = search(root, c).charAt(0);
+	            if (letter != '\0') {
+	                output.append(letter);
+	            }
+	        }
+	    }	
 		//PLACEHOLDER, change later to actual thing to return
-		return new UnencryptedMessage(m.getName(), m.getMessageText());
+		return new UnencryptedMessage(m.getName(), output.toString());
 	}
 }
