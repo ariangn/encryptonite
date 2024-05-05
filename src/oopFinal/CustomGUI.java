@@ -142,7 +142,6 @@ public class CustomGUI extends JFrame {
 		
 		try {
 			loadCustomEncryptor();
-			test();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -150,11 +149,11 @@ public class CustomGUI extends JFrame {
 	}
 	
 	//add a Find-Replace row with no text
-	void addFindReplaceRow() {
+	private void addFindReplaceRow() {
 		addFindReplaceRow("","");
 	}
 	
-	void addFindReplaceRow(String findText, String replaceText) {
+	private void addFindReplaceRow(String findText, String replaceText) {
 		textNewFind = new JTextField();
 		System.out.println(findReplaceTexts.size());
 		textNewFind.setBounds(44, 10, 100, 30 );
@@ -198,18 +197,7 @@ public class CustomGUI extends JFrame {
 		contentPane.repaint();
 	}
 	
-	void sortFindReplace() {
-		for (int i = 0; i < findReplaceTexts.size(); i++) {
-			findReplaceTexts.get(i).get(0).setBounds(44, 10 + (100 * i), 130, 30 + (100*i));
-			findReplaceTexts.get(i).get(1).setBounds(44, 10 + (100 * i), 130, 30 + (100*i));
-			//findReplaceTexts.get(i).setText(Integer.toString(i));
-		}
-		
-//		innerPanel.repaint();
-//		contentPane.repaint();
-	}
-	
-	void subtractRow(Object btn) {
+	private void subtractRow(Object btn) {
 		int n;
 		n = minusButtons.indexOf(btn);
 				
@@ -232,7 +220,7 @@ public class CustomGUI extends JFrame {
 		contentPane.repaint();
 	}
 	
-	void clear() {
+	private void clear() {
 		int m = findReplaceTexts.size();
 		
 		findReplaceTexts.clear();
@@ -250,7 +238,7 @@ public class CustomGUI extends JFrame {
 	
 	//this will store all the find-replace pairs entered by the user in a CustomEncryptor object
 	//and make this object the current Custom Encryption method (global field currentEncryptor in CustomEncryptor)
-	void save() {
+	private void save() {
 		
 		CustomEncryptor custom = new CustomEncryptor();
 		
@@ -262,7 +250,7 @@ public class CustomGUI extends JFrame {
 	}
 	
 	//load the previous encryption method into the GUI
-	void loadCustomEncryptor() {
+	private void loadCustomEncryptor() {
 		
 		CustomEncryptor currentEncryptor = CustomEncryptor.getCurrentEncryptor();
 		
@@ -274,12 +262,5 @@ public class CustomGUI extends JFrame {
 		}
 		
 	}
-	
-	//REMOVE THIS LATER
-	void test() {
-		UnencryptedMessage m = new UnencryptedMessage("name","hello world");
-		CustomMessage cm = (CustomMessage)((CustomEncryptor.getCurrentEncryptor()).encrypt(m));
-		System.out.println("encrypted message test: " + cm.getMessageText());
-		
-	}
+
 }
