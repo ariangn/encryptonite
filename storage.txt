@@ -1,0 +1,180 @@
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
+Encrypted Message
+oopFinal.HuffmanEncryptor@72ea2f77
+Name: huff
+Message: text
+-------------
+Encrypted Message
+oopFinal.MorseEncryptor@1218025c
+Name: morse
+Message: text
+-------------
+Encrypted Message
+oopFinal.CustomEncryptor@816f27d
+Name: custom
+Message: null
+-------------
