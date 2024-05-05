@@ -146,11 +146,10 @@ public class CustomGUI extends JFrame {
 		
 		try {
 			loadCustomEncryptor();
+			test();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-		test();
 		
 	}
 	
