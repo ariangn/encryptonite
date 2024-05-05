@@ -101,6 +101,7 @@ public class EncryptionGUI extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(53, 45, 350, 175);
+		textArea.setEditable(false);
 		contentPane.add(textArea);
 		
 		JScrollPane scrollPane = new JScrollPane(textArea);
