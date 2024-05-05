@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CustomEncryptor extends Encryptor{
 	
 	//currentEncryptor is the custom encryption method that will used when the user encrypts a new message
-	private static CustomEncryptor currentEncryptor;
+	private static CustomEncryptor currentEncryptor = new CustomEncryptor();
 	
 	private int length; //number of find-replace pairs
 
@@ -75,9 +75,10 @@ public class CustomEncryptor extends Encryptor{
 			replace = getReplaceAt(i);
 			
 			//index of the text to replace in the string
-			int findIndex = unencryptedText.indexOf(find);
+			int findIndex = encryptedText.indexOf(find);
 			//while there is still more text to replace, replace it!
 			while (encryptedText.indexOf(find) > 0) {
+				System.out.println(encryptedText);
 				//this replaces the original text with the replace
 				encryptedText = (encryptedText.substring(0,findIndex) + replace + encryptedText.substring(findIndex + find.length(), encryptedText.length()));
 			}

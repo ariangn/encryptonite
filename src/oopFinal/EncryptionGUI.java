@@ -154,7 +154,7 @@ public class EncryptionGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//reenable the "encrypt" button
 				btnEncrypt.setEnabled(true);
-				currentEncryptor = new CustomEncryptor();
+				currentEncryptor = CustomEncryptor.getCurrentEncryptor();
 				showEncryptedMessage(textArea);
 			}
 		});
