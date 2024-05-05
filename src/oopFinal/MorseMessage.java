@@ -4,6 +4,7 @@ public class MorseMessage extends EncryptedMessage {
 	
 	private String name;
 	private String messageText;
+	private String oldMessage;
 	
 	private Encryptor encryptorUsed;
 	
@@ -32,6 +33,16 @@ public class MorseMessage extends EncryptedMessage {
 	@Override
 	public Encryptor getEncryptorUsed() {
 		return encryptorUsed;
+	}
+	
+	public String getOldMessage() {
+		return oldMessage;
+	}
+
+	@Override
+	public void setOldMessage(String oldMessage) {
+		this.oldMessage = oldMessage;
+		
 	}
 
 }

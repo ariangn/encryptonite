@@ -1,17 +1,14 @@
 Unencrypted Message
-Name: beep
-Message: boop
+Name: morse message
+Message: the cow fell down
 -------------
-Unencrypted Message
-Name: creep
-Message: croop
--------------
-Unencrypted Message
-Name: connor
-Message: 11011110101111null010110101001110011101null00000110110010110010null001111000001null011110011110100
+Encrypted Message
+Encryptor Used: Custom
+Name: Custom
+Message: I'm weally weally tiwed!
 -------------
 Encrypted Message
 Encryptor Used: Huffman
-Name: connor
-Message: 11011110101111null010110101001110011101null00000110110010110010null001111000001null011110011110100
+Name: huff
+Message: 101100 101100
 -------------

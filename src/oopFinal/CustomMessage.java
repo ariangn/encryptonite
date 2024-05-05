@@ -4,6 +4,7 @@ public class CustomMessage extends EncryptedMessage {
 	
 	private String name;
 	private String messageText;
+	private String oldMessage;
 	
 	private Encryptor encryptorUsed;
 	
@@ -44,5 +45,17 @@ public class CustomMessage extends EncryptedMessage {
 	public Encryptor getEncryptorUsed() {
 		return encryptorUsed;
 	}
+
+	@Override
+	public String getOldMessage() {
+		return oldMessage;
+	}
+	
+	@Override
+	public void setOldMessage(String oldMessage) {
+		this.oldMessage = oldMessage;
+		
+	}
+	
 
 }
