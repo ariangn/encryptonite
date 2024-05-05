@@ -1,5 +1,13 @@
+Unencrypted Message
+Name: Connor
+Message: kjdahfjkahfsdjkhsfda
+-------------
+Unencrypted Message
+Name: beep
+Message: boop
+-------------
 Encrypted Message
-Encryptor Used: Huffman
+Encryptor Used: 
 Name: huff
 Message: text
 -------------
@@ -9,7 +17,12 @@ Name: morse
 Message: text
 -------------
 Encrypted Message
-Encryptor Used: Custom
+Encryptor Used: 
 Name: custom
 Message: null
+-------------
+Encrypted Message
+Encryptor Used: Morse
+Name: custom
+Message: -. ..- .-.. .-.. 
 -------------

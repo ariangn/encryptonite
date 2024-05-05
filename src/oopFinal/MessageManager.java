@@ -113,6 +113,7 @@ public class MessageManager {
     }
 
     // Rewrite all messages to the text file
+ // Rewrite all messages to the text file
     public static void rewriteMessagesToFile(File storageFile) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(storageFile, false))) {
             for (UnencryptedMessage m : unencryptedMessages) {
@@ -123,6 +124,15 @@ public class MessageManager {
             }
             for (EncryptedMessage m : encryptedMessages) {
                 writer.write("Encrypted Message\n");
+                String encryptorType = "";
+                if (m.getEncryptorUsed() instanceof HuffmanEncryptor) {
+                    encryptorType = "Huffman";
+                } else if (m.getEncryptorUsed() instanceof MorseEncryptor) {
+                    encryptorType = "Morse";
+                } else if (m.getEncryptorUsed() instanceof CustomEncryptor) {
+                    encryptorType = "Custom";
+                }
+                writer.write("Encryptor Used: " + encryptorType + "\n");
                 writer.write("Name: " + m.getName() + "\n");
                 writer.write("Message: " + m.getMessageText() + "\n");
                 writer.write("-------------\n");
@@ -131,5 +141,6 @@ public class MessageManager {
             e.printStackTrace();
         }
     }
+
 	
 }
