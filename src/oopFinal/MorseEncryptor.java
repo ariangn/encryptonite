@@ -4,6 +4,7 @@ public class MorseEncryptor extends Encryptor {
 	// inputs string
 	String input = new String("the quick brown fox jumps over the lazy dog");
 
+	
 	@Override
 	public EncryptedMessage encrypt(UnencryptedMessage m) {
 		// TODO Auto-generated method stub

@@ -88,7 +88,7 @@ public class CustomGUI extends JFrame {
 		JButton btnPlus = new JButton("+");
 		btnPlus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addFindReplaceRow(innerPanel1, innerPanel2);
+				addFindReplaceRow();
 			}
 		});
 		btnPlus.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
@@ -150,7 +150,7 @@ public class CustomGUI extends JFrame {
 		
 	}
 	
-	void addFindReplaceRow(JPanel innerPanel1, JPanel innerPanel2) {
+	void addFindReplaceRow() {
 		textNewFind = new JTextField();
 		System.out.println(findReplaceTexts.size());
 		textNewFind.setBounds(44, 10, 100, 30 );
@@ -192,7 +192,7 @@ public class CustomGUI extends JFrame {
 		contentPane.repaint();
 	}
 	
-	void sortFindReplace(JPanel innerPanel) {
+	void sortFindReplace() {
 		for (int i = 0; i < findReplaceTexts.size(); i++) {
 			findReplaceTexts.get(i).get(0).setBounds(44, 10 + (100 * i), 130, 30 + (100*i));
 			findReplaceTexts.get(i).get(1).setBounds(44, 10 + (100 * i), 130, 30 + (100*i));
