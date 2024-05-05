@@ -92,15 +92,19 @@ public class HuffmanEncryptor extends Encryptor{
 	    StringBuilder encryptedText = new StringBuilder();
 	    for (int i = 0; i < input.length(); i++) {
 	        char ch = input.charAt(i);
-	        encryptedText.append(huffmanCodes.get(ch));
+	        String code = huffmanCodes.get(ch);
+	        if (code != null) {
+	            encryptedText.append(code);
+	        } else {
+	            encryptedText.append(ch);
+	        }
 	    }
 	    return encryptedText.toString();
 	}
 
+
 	@Override
 	public UnencryptedMessage decrypt(EncryptedMessage m) {
-		
-		//for now:
 		return new UnencryptedMessage(m.getName(), m.getMessageText());
 	}
 
