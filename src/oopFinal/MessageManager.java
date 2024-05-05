@@ -53,9 +53,9 @@ public class MessageManager {
 	                    case "Huffman":
 	                        encryptedMessages.add(new HuffmanMessage(name, messageText));
 	                        break;
-//	                    case "Morse":
-//	                        encryptedMessages.add(new MorseMessage(name, messageText));
-//	                        break;
+	                    case "Morse":
+	                        encryptedMessages.add(new MorseMessage(name, messageText));
+	                        break;
 	                    case "Custom":
 	                        encryptedMessages.add(new CustomMessage(name, messageText));
 	                        break;
