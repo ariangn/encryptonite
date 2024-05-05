@@ -8,7 +8,10 @@ public class MessageManager {
 =======
 >>>>>>> Stashed changes
 import java.io.IOException;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 public class MessageManager { //hi
@@ -44,6 +47,29 @@ public class MessageManager { //hi
 	}
 	
 	//------------------------------------------------------------------------//
+	
+	public static void fetchMessages(File storageFile) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(storageFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.equals("Unencrypted Message")) {
+                    String name = reader.readLine().substring(6);
+                    String messageText = reader.readLine().substring(9);
+                    unencryptedMessages.add(new UnencryptedMessage(name, messageText));
+                    
+                } else if (line.equals("Encrypted Message")) {
+                    String name = reader.readLine().substring(6);
+                    String messageText = reader.readLine().substring(9);
+                    
+                    encryptedMessages.add(new HuffmanMessage(name, messageText)); //TODO
+                }
+                // Skip the "-------------" line
+                reader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 	
 	public static void storeUnencryptedMessage(UnencryptedMessage m) {
 <<<<<<< Updated upstream
@@ -139,6 +165,7 @@ public class MessageManager { //hi
        // Store the message in the text file
        try (BufferedWriter writer = new BufferedWriter(new FileWriter("storage.txt", true))) {
            writer.write("Encrypted Message\n");
+           writer.write(m.getEncryptorUsed() + "\n");
            writer.write("Name: " + m.getName() + "\n");
            writer.write("Message: " + m.getMessageText() + "\n");
            writer.write("-------------\n");
