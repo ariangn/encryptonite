@@ -243,7 +243,8 @@ public class CustomGUI extends JFrame {
 		CustomEncryptor custom = new CustomEncryptor();
 		
 		for (int i = 0; i < findReplaceTexts.size(); i++) {
-			custom.addPair(findReplaceTexts.get(i).get(0).getText(), findReplaceTexts.get(i).get(1).getText());
+			if ((findReplaceTexts.get(i).get(0).getText().length() > 0) && findReplaceTexts.get(i).get(1).getText().length() > 0)
+				custom.addPair(findReplaceTexts.get(i).get(0).getText(), findReplaceTexts.get(i).get(1).getText());
 		}
 		
 		CustomEncryptor.setCurrentEncryptor(custom);
