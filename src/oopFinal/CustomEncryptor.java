@@ -64,7 +64,7 @@ public class CustomEncryptor extends Encryptor{
 		//these are the Strings to find and replace, these will change in the loops
 		String find;
 		String replace;
-		String unencryptedText = m.getMessageText();
+		String unencryptedText = " " + m.getMessageText();
 		
 		String encryptedText = String.valueOf(unencryptedText);
 		
@@ -90,7 +90,7 @@ public class CustomEncryptor extends Encryptor{
 			
 		}
 		
-		return new CustomMessage(m.getName(), encryptedText, this);
+		return new CustomMessage(m.getName(), encryptedText.substring(1), this);
 	}
 
 	@Override
@@ -98,7 +98,7 @@ public class CustomEncryptor extends Encryptor{
 		//these are the Strings to find and replace, these will change in the loops
 		String find;
 		String replace;
-		String encryptedText = m.getMessageText();
+		String encryptedText = " " + m.getMessageText();
 		
 		String decryptedText = String.valueOf(encryptedText);
 		
@@ -123,7 +123,7 @@ public class CustomEncryptor extends Encryptor{
 			}
 			
 		}
-		return new UnencryptedMessage(m.getName(), decryptedText);
+		return new UnencryptedMessage(m.getName(), decryptedText.substring(1));
 	}
 	
 }

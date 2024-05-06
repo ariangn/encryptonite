@@ -1,6 +1,8 @@
-Encrypted Message
-Encryptor Used: Custom
-Name: Custom
-Message: bbbbbbb
-Encryption String: a/b
+Unencrypted Message
+Name: hello
+Message: asdfasdf
+-------------
+Unencrypted Message
+Name: henry
+Message: hehehehe
 -------------
