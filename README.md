@@ -1,4 +1,4 @@
-# oopfinal
+# Encrypt-o-nite
 
 Final Project for Object Oriented Programming Spring 2024 <br> <br>
 Team Members: <br>
