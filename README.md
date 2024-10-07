@@ -20,7 +20,7 @@ Once created, the messages can be encrypted using one of the following options: 
 
 <br>
 
-The custom encoding can be modified in the 'Modify Custom Encryptor' tab. <br> <br>
+The custom encoding can be modified in the 'Modify Custom Encryptor' tab. <br>
 <img width="350" src="https://github.com/user-attachments/assets/a9cc86b5-d3e0-4bec-a7c2-48dd9d345f06">
 
 ## How to use
